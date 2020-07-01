@@ -33,3 +33,4 @@
 ## 設計書
 
 ### 機能一覧
+https://docs.google.com/spreadsheets/d/171aXnlZB_ji4pZXkAnN82ekwF2DqtXsDVv2uwQS5Xq4/edit#gid=0
