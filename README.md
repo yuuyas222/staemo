@@ -35,5 +35,8 @@
 
 ### 機能一覧
 
+### 画面遷移図
+https://drive.google.com/file/d/1H3gRa_hpO5F74eceBohlKEZOCkd-PyUb/view?usp=sharing
+
 ### チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/171aXnlZB_ji4pZXkAnN82ekwF2DqtXsDVv2uwQS5Xq4/edit#gid=0
