@@ -40,3 +40,10 @@ https://drive.google.com/file/d/1H3gRa_hpO5F74eceBohlKEZOCkd-PyUb/view?usp=shari
 
 ### チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/171aXnlZB_ji4pZXkAnN82ekwF2DqtXsDVv2uwQS5Xq4/edit#gid=0
+
+### ワイヤーフレーム　ER図
+https://drive.google.com/file/d/1GEsOU-8zBP6GnhK6BX0CvAwdUbES6S4x/view?usp=sharing
+https://drive.google.com/file/d/1lEY_KhbG18snENoW8lNtkvEyjRItj-uL/view?usp=sharing
+
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/1-s_1iFXouUiX9fStBh_NhqhDMhcA83cr8v2eY-qozNU/edit?usp=sharing
