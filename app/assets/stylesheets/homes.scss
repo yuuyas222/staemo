@@ -1,3 +1,29 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header{
+    background-color: #cbffd3;
+}
+
+h1{
+    color: red;
+    display: inline-block;
+}
+
+ul{
+    display: inline-block;
+    float: right;
+}
+
+li{
+  list-style: none;
+  display: inline-block;
+}
+
