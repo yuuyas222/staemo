@@ -8,6 +8,11 @@
     clear: both;
 }
 
+.container{
+    margin: 0 auto;
+}
+
+// ヘッダ箇所
 header{
     background-color: #cbffd3;
 }
@@ -25,5 +30,19 @@ ul{
 li{
   list-style: none;
   display: inline-block;
+}
+
+// about箇所
+.photo{
+    display: inline-block;
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 50px;
+}
+.text-content{
+    display: inline-block;
+    float: left;
 }
 
