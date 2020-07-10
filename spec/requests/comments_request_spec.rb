@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Comments", type: :request do
 
-  describe "GET /create" do
-    it "returns http success" do
+  describe "投稿へのコメント投稿" do
+    it "投稿がされている" do
       get "/comments/create"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
-  describe "GET /destroy" do
-    it "returns http success" do
+  describe "投稿の削除" do
+    it "投稿が削除されている" do
       get "/comments/destroy"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 

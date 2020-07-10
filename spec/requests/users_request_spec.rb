@@ -2,38 +2,38 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
 
-  describe "GET /index" do
-    it "returns http success" do
+  describe "利用しているユーザーの一覧" do
+    it "ユーザー一覧が表示できる" do
       get "/users/index"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
-  describe "GET /show" do
-    it "returns http success" do
+  describe "ユーザーの詳細表示" do
+    it "ユーザーの詳細が表示できる" do
       get "/users/show"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
-  describe "GET /edit" do
-    it "returns http success" do
+  describe "ユーザーの編集" do
+    it "編集ページが表示できる" do
       get "/users/edit"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
-  describe "GET /confirm" do
-    it "returns http success" do
+  describe "退会確認画面" do
+    it "退会確認画面が表示できる" do
       get "/users/confirm"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
-  describe "GET /update" do
-    it "returns http success" do
+  describe "ユーザー情報の更新" do
+    it "ユーザー情報の更新ができる" do
       get "/users/update"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 

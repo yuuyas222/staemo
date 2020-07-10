@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Homes", type: :request do
 
-  describe "GET /about" do
-    it "returns http success" do
+  describe "aboutページを表示" do
+    it "aboutページの表示が成功する" do
       get "/homes/about"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 

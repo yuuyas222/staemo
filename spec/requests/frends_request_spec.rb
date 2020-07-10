@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Frends", type: :request do
 
-  describe "GET /index" do
-    it "returns http success" do
+  describe "フレンドの一覧を表示" do
+    it "フレンドの一覧を表示できている" do
       get "/frends/index"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
-  describe "GET /show" do
-    it "returns http success" do
+  describe "フレンドの詳細情報を表示" do
+    it "フレンドの詳細情報を表示できる" do
       get "/frends/show"
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
