@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="info">
+<h1>~my page~</h1>
+<%= @user.profile_image %>
+<p>フレンド一覧　人</p>
+<p>お気に入りの投稿　件</p>
+<%= @user.name %>
+<%= @user.introduction %>
+</div>
+
+<div class="book">
+<h1>過去の投稿の一覧</h1>
+<% @emotions.each do |emotion| %>
+  <div>
+    <%= emotion.profile_image %>
+    <%= @user.name %>
+    <%= emotion.created.at %>
+    <%= emotion.body %>
+  </div>
+<% end %>
+</div>
+

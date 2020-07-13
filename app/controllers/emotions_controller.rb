@@ -9,6 +9,8 @@ class EmotionsController < ApplicationController
   end
 
   def show
+    @emotion = Emotion.find(params[:id])
+    @emotion_comments = @emotion.commens.all
   end
 
   def update
