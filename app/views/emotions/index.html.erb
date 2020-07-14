@@ -1,2 +1,8 @@
-<h1>Emotions#index</h1>
-<p>Find me in app/views/emotions/index.html.erb</p>
+<h1>最近の投稿一覧</h1>
+
+<% @emotions.each do |emotion| %>
+  <div>
+    <%= emotion.created.at %>
+    <%= emotion.body %>
+  </div>  
+<% end %>

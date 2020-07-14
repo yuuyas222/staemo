@@ -10,10 +10,25 @@
 
 <div class="book">
 <h1>投稿詳細</h1>
-
-  <div>
-    <%= emotion.created.at %>
-    <%= emotion.body %>
-  </div>
-
+  <session>
+    <%= @emotion.created.at %>
+    <%= @emotion.body %>
+  </session>
+  <session>
+  <% @emotion_commetns.each do |comment| %>
+    <%= comment.user.name %>
+    <%= comment.body %>
+  <% end %>
+  <%# いいね機能 %>
+  <% if @emotion.favorited_by?(current_user) %>
+   <%= link_to user_favorite_path(@emotion), method: :delete do %>
+   <span class="glyphicon glyphicon-heart"><%= @emotion.favorites.count%>件</span>
+   <% end %>
+  <% else %>
+   <%= link_to user_favorite_path(@emotion), method: :post do %>
+   <span class="glyphicon glyphicon-heart-empty"><%= @emotion.favorites.count%>件</span>
+   <% end %>
+  <% end %>
+  </session>  
+  
 </div>

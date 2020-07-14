@@ -1,5 +1,6 @@
 class EmotionsController < ApplicationController
   def index
+    @emotions = Emotion.all
   end
 
   def create
@@ -10,7 +11,7 @@ class EmotionsController < ApplicationController
 
   def show
     @emotion = Emotion.find(params[:id])
-    @emotion_comments = @emotion.commens.all
+    @emotion_comments = @emotion.comments.all
   end
 
   def update
