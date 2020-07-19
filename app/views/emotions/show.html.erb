@@ -1,2 +1,39 @@
 <h1>Emotions#show</h1>
-<p>Find me in app/views/emotions/show.html.erb</p>
+<div class="info">
+<h1>~my page~</h1>
+<%= @user.profile_image %>
+<p>フレンド一覧　人</p>
+<p>お気に入りの投稿　件</p>
+<%= @user.name %>
+<%= @user.introduction %>
+</div>
+
+<div class="book">
+<h1>投稿詳細</h1>
+  <session>
+    <%= @emotion.created.at %>
+    <%= @emotion.body %>
+  </session>
+  <session>
+  <% @emotion_commetns.each do |comment| %>
+    <%= comment.user.name %>
+    <%= comment.body %>
+  <% end %>
+  <%# いいね機能 %>
+  <% if @emotion.favorited_by?(current_user) %>
+   <%= link_to user_favorite_path(@emotion), method: :delete do %>
+   <span class="glyphicon glyphicon-heart"><%= @emotion.favorites.count%>件</span>
+   <% end %>
+  <% else %>
+   <%= link_to user_favorite_path(@emotion), method: :post do %>
+   <span class="glyphicon glyphicon-heart-empty"><%= @emotion.favorites.count%>件</span>
+   <% end %>
+  <% end %>
+  </session>  
+</div>
+<div class="comment">
+  <%= form_for [@emotion, @comment] do |f| %>
+   <%= f.textarea :comment %>
+   <%= f.submit "投稿する" %>
+  <% end %>
+</div>

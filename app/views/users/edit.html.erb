@@ -1,2 +1,10 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>my page edit</h1>
+<%= form_for(@user) do |f| %>
+    <%= f.name %>
+    <%= f.introduction %>
+    <%= f.favorite_team %>
+    <%= f.text %>
+    タグ
+    <%= f.submit "編集する" %>
+<% end %>
+<%= link_to "退会手続きをする" users_confirm_path %>
