@@ -1,4 +1,5 @@
 class FrendsController < ApplicationController
+  
   def index
     
   end

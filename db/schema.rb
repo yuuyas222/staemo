@@ -10,16 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_065251) do
+ActiveRecord::Schema.define(version: 2020_07_19_164638) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "image_id"
+    t.integer "emotion_id"
+    t.string "body"
   end
 
   create_table "emotions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "image_id"
+    t.string "body"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -33,11 +39,17 @@ ActiveRecord::Schema.define(version: 2020_07_14_065251) do
     t.string "Emotion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status"
+    t.integer "following_id"
+    t.integer "follower_id"
   end
 
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "image_id"
+    t.integer "emotion_id"
+    t.integer "comment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,6 +60,14 @@ ActiveRecord::Schema.define(version: 2020_07_14_065251) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "profile_image_url"
+    t.integer "favorite_team"
+    t.text "introduction"
+    t.string "textbox"
+    t.datetime "deleted_at"
+    t.string "index"
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

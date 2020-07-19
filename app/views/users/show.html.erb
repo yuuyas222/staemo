@@ -1,11 +1,14 @@
+<%= render "forms/header"%>
 <div class="info">
 <h1>~my page~</h1>
-<%= @user.profile_image %>
+<%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100" %>
 <p>フレンド一覧　人</p>
 <p>お気に入りの投稿　件</p>
-<%= @user.name %>
-<%= @user.introduction %>
+<p>ユーザー名　<%= @user.name %></p>
+<p>紹介文　<%= @user.introduction %></p>
 </div>
+
+<%= link_to "編集する", edit_user_path(@user) %>
 
 <div class="book">
 <h1>過去の投稿の一覧</h1>

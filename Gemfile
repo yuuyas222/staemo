@@ -73,6 +73,8 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+
 
 gem 'dotenv-rails'
 group :production do

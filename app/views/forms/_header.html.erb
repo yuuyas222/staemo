@@ -2,8 +2,15 @@
  <nav>
  <h1>スタエモ</h1>
  <ul>
-    <li>ログインする</li>
-    <li>新規登録する</li>
+ <% if user_signed_in? %>
+   <li><%= link_to "mypage", user_path(current_user) %><li>
+   <li><%= link_to "新規投稿", new_emotion_path(current_user) %><li>
+   <li><%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100" %><li>
+   <li><%= current_user.name %><li>
+ <% else %>
+    <li><%= link_to "ログインする", new_user_session_path %></li>
+    <li><%= link_to "新規登録する", new_user_registration_path %></li>
+ <% end %>
  </ul>
  </nav>
 </header>

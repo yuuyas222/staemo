@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, controller: {
+    sessions: "users/sessions",
+    registrations: "users/registrations"
+  }
 
   
 
