@@ -1,10 +1,11 @@
+<%= render "forms/header"%>
 <h1>my page edit</h1>
 <%= form_for(@user) do |f| %>
-    <%= f.name %>
-    <%= f.introduction %>
-    <%= f.favorite_team %>
-    <%= f.text %>
+    <%= f.text_field :name %>
+    <%= f.text_area :introduction %>
+    <%= f.text_field :favorite_team %>
+    <%= f.text_field :textbox %>
     タグ
     <%= f.submit "編集する" %>
 <% end %>
-<%= link_to "退会手続きをする" users_confirm_path %>
+<%= link_to "退会手続きをする", user_confirm_path(current_user) %>
