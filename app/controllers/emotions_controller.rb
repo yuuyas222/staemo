@@ -4,6 +4,7 @@ class EmotionsController < ApplicationController
   end
 
   def create
+
   end
 
   def destroy
@@ -11,6 +12,7 @@ class EmotionsController < ApplicationController
 
   def show
     @emotion = Emotion.find(params[:id])
+    @comment = Comment.new
     @emotion_comments = @emotion.comments.all
   end
 

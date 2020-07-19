@@ -30,5 +30,10 @@
    <% end %>
   <% end %>
   </session>  
-  
+</div>
+<div class="comment">
+  <%= form_for [@emotion, @comment] do |f| %>
+   <%= f.textarea :comment %>
+   <%= f.submit "投稿する" %>
+  <% end %>
 </div>
