@@ -3,16 +3,16 @@ Rails.application.routes.draw do
 
   root "homes#about"
 
-  resources :users, params: :username, path: "/", only: [:edit, :show, :update] do
+  resources :users, params: :name, path: "/", only: [:edit, :show, :update] do
     get "confirm" => "users#confirm", as: "confirm"
     get "frend" => "frends#index", as: "frend"
     get "frend_best" => "frends#show", as: "best_frend"
-    resource :favorite, only: [:index, :create, :destroy]
   end
 
-  scope :username do    
+  scope :name do    
     resources :emotions do
       resources :comments, only: [:show, :edit, :create, :destroy]
+      resource :favorites, only: [:index, :create, :destroy]
     end
   end
 

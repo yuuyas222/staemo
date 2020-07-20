@@ -14,10 +14,11 @@
 <h1>過去の投稿の一覧</h1>
 <% @emotions.each do |emotion| %>
   <div>
-    <%= emotion.profile_image %>
+  <%= link_to emotion_path do %>
     <%= @user.name %>
-    <%= emotion.created.at %>
+    <%= emotion.created_at %>
     <%= emotion.body %>
+   <% end %> 
   </div>
 <% end %>
 </div>

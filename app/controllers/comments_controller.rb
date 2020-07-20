@@ -4,12 +4,12 @@ class CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.emotion_id = emotion.id
     comment.save
-    redirect_to request.refere
+    redirect_to request.referer
   end
 
   def destroy
     Comment.find_by(id: params[:id],emotion_id: params[:emotion_id]).destroy
-    redirect_to request.refere
+    redirect_to request.referer
   end
 
   private

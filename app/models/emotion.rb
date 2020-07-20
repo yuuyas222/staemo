@@ -1,10 +1,10 @@
 class Emotion < ApplicationRecord
     belongs_to :user
     has_many :favorites, dependent: :destroy
-    has_many :commnets, dependent: :destroy
+    has_many :comments, dependent: :destroy
 
-    def favirited_by(current_user)
-        favorites.where(user_id: current_user.id).exit
+    def favorited_by?(user)
+        favorites.where(user_id: user.id).exists?
     end
 
 end
