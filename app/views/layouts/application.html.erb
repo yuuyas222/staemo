@@ -7,13 +7,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
+    
   </head>
 
   <body>
+<%# <div id="preloader">
+  <div id="status">
+    <div class="spinner">Loading...</div>
+  </div>
+</div> %>
 
-  <div class="container">
-
-    <%= yield %>
+<div class="top"><%= render "forms/header" %></div>
+<% if user_signed_in? %>  
+<div class="flex">
+    <div class="leftbar"><%= render "forms/left_sidebar" %></div>
+  <div class="container"> 
+    <div class="center-content"><%= yield %></div>
   </div>  
+    <div class="rightbar"><%= render "forms/right_sidebar" %></div>
+</div>
+<% else %>
+<%= yield %>
+<% end %>
+
   </body>
 </html>

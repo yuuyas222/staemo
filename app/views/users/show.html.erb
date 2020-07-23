@@ -1,24 +1,41 @@
-<%= render "forms/header"%>
+
 <div class="info">
-<h1>~my page~</h1>
-<%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100" %>
-<p>フレンド一覧　人</p>
-<p>お気に入りの投稿　件</p>
-<p>ユーザー名　<%= @user.name %></p>
-<p>紹介文　<%= @user.introduction %></p>
+    <h1>~my page~</h1>
+    <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100" %>
+    <p>フレンド登録数　<%=@user.followers.count %>人</p>
+    <p>お気に入りの投稿　<%=@user.favorites.count %>件</p>
+    <p>ユーザー名　<%= @user.name %></p>
+    <p>紹介文　<%= @user.introduction %></p>
+    <p>お気に入りの球団　<%= @user.favorite_team %></p>
+    <p>野球と出会ったきっかけ　<%= @user.textbox %></p>
+    <p>タグ
+      <% @user.tag_list.each do |tag| %>
+      <%= link_to tag, users_path(tag_name: tag) %>
+    </p>
+    <% end %>　
 </div>
 
-<%= link_to "編集する", edit_user_path(@user) %>
+<% if current_user.id != @user.id %>
+    <% if @user.followed_by?(current_user) %>
+        <p><%= link_to "frend解除", user_frendship_path(@user), method: :delete %></p>
+    <% else %>
+        <p><%= link_to "frend登録", user_frendships_path(@user), method: :post %></p></p>
+    <% end %>    
+<% end %>
+<% if @user == current_user %>
+    <%= link_to "編集する", edit_user_path(@user) %>
+<% end %>
 
 <div class="book">
 <h1>過去の投稿の一覧</h1>
 <% @emotions.each do |emotion| %>
   <div>
-  <%= link_to emotion_path do %>
+    <p>ユーザー名</p>
     <%= @user.name %>
+    <p>投稿時間</p>
     <%= emotion.created_at %>
+    <p>投稿内容</p>
     <%= emotion.body %>
-   <% end %> 
   </div>
 <% end %>
 </div>

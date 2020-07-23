@@ -1,0 +1,49 @@
+
+
+<h1>最近の投稿一覧</h1>
+
+<% @emotions.each do |emotion| %>
+  <div class= "user-emotion clearfix">
+    <section class="img-area">
+    <% if emotion.user.profile_image.present? %>
+      <p><%= attachment_image_tag emotion.user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %><p>
+    <% else %>
+      <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+    <% end %>
+    </section>
+    <div class="right-content">  
+    <section>
+      <p>ユーザー名　<span class="strong"><%= emotion.user.name %></span></p>
+      <p><%= time_ago_in_words(emotion.created_at) %>前</p><br>
+      <p>
+      <% if emotion.favorited_by?(current_user) %>
+      <%= link_to emotion_favorites_path(emotion), method: :delete do %>
+        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+        <%= emotion.favorites.count %> いいね
+      <% end %>
+  <% else %>
+      <%= link_to emotion_favorites_path(emotion), method: :post do %>
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <%= emotion.favorites.count %> いいね
+  <% end %>
+      </p>  
+        <p>コメント数　<%= emotion.comments.count %> 件</p>
+  <% end %>
+    </section>
+    <section>  
+      <h5><%= emotion.body %></h5>
+    </section>  
+    </div>
+  </div>
+<% end %>
+
+<% @emotions.each do |emotion| %>
+<%= link_to emotion_path(emotion) do %>
+  <div>
+    <%= emotion.created_at %>
+    <%= emotion.user.name %>
+    <%= emotion.body %>
+    <%= emotion.favorites.count %> いいね
+  </div>  
+<% end %>  
+<% end %>

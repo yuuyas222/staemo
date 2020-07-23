@@ -1,1 +1,10 @@
 
+
+<% @users.each do |user| %>
+  <p>ユーザー名</p>
+  <%= user.name %>
+  <p>紹介文</p>
+  <%= user.introduction %>
+  <p>お気に入りの球団</p>
+  <%= user.favorite_team %>
+<% end %>

@@ -14,17 +14,26 @@
 
 // ヘッダ箇所
 header{
-    background-color: #cbffd3;
-}
+    background-color: rgba(0, 0, 0, 0.69);
+    color: #ffffff;
+    padding: 0 50px;
+    height: 80px;
+    position: fixed;
+    width: 100%;
 
+.fixed{
+    position: fixed;
+    top: 0;
+}
 h1{
-    color: red;
+    
     display: inline-block;
 }
 
 ul{
     display: inline-block;
     float: right;
+    padding: 0 50px;
 }
 
 li{
@@ -32,17 +41,46 @@ li{
   display: inline-block;
 }
 
-// about箇所
-.photo{
-    display: inline-block;
-    float: left;
-    width: 100px;
-    height: 100px;
-    background-color: green;
-    border-radius: 50px;
-}
-.text-content{
-    display: inline-block;
-    float: left;
+.img{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-top: 10px;
 }
 
+.btn{
+    display: inline;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #9ec34b;
+    font-size: 16px;
+    color: #9ec34b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    margin-right: 20px;
+}
+.top-btn{
+    display: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #9ec34b;
+    font-size: 16px;
+    color: #9ec34b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    margin-right: 20px;
+}
+
+.header-list{
+    margin-top: 20px;
+}
+
+}

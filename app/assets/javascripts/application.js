@@ -14,3 +14,28 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+
+$(function(){    
+    window.onload = function() {
+        let spinner = document.getElementById('preloader');
+        spinner.classList.add('loaded');
+    }
+    
+    var _window = $(window),
+        _header = $('header'),
+        topBottom;
+    
+    _window.on('scroll', function(){
+        topBottom = $('.top').height();
+        if(_window.scrollTop() > topBottom){
+            _header.addClass('fixed');
+        }
+        else{
+            _header.removeClass('fixed');
+        }
+    });
+
+    _window.trigger('scroll');
+    
+});

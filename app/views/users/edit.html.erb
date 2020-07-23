@@ -1,11 +1,18 @@
-<%= render "forms/header"%>
+
 <h1>my page edit</h1>
 <%= form_for(@user) do |f| %>
+    <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100" %>
+    <%= f.attachment_field :profile_image %>
+    <p>ユーザー名</p>
     <%= f.text_field :name %>
+    <p>紹介文</p>
     <%= f.text_area :introduction %>
+    <p>お気に入りの球団</p>
     <%= f.text_field :favorite_team %>
+    <p>野球との出会いは？？</p>
     <%= f.text_field :textbox %>
-    タグ
+    <p>タグ</p>
+    <%= f.text_field :tag_list, value: @user.tag_list.join(',') %>  
     <%= f.submit "編集する" %>
 <% end %>
 <%= link_to "退会手続きをする", user_confirm_path(current_user) %>

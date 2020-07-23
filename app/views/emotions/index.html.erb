@@ -1,8 +1,15 @@
+
+
+
 <h1>最近の投稿一覧</h1>
 
 <% @emotions.each do |emotion| %>
+<%= link_to emotion_path(emotion) do %>
   <div>
-    <%= emotion.created.at %>
+    <%= emotion.created_at %>
+    <%= emotion.user.name %>
     <%= emotion.body %>
+    <%= emotion.favorites.count %> いいね
   </div>  
+<% end %>  
 <% end %>

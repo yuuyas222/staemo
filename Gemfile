@@ -72,8 +72,13 @@ gem 'bootstrap-sass', '~>3.3.6'
 gem 'jquery-rails'
 
 gem 'devise'
-
+gem 'paranoia'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+
+gem 'acts-as-taggable-on'
+gem 'carrierwave', '~> 1.0.0'
+
+
 
 
 gem 'dotenv-rails'

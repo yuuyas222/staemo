@@ -1,19 +1,14 @@
-<%= render "forms/header" %>
-<div class="info">
-<h1>~my page~</h1>
-<%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100" %>
-<p>フレンド一覧　人</p>
-<p>お気に入りの投稿　件</p>
-<%= @user.name %>
-<%= @user.introduction %>
-</div>
-<%= @emotion.favorites.where(user_id: current_user.id).exists? %>
+
+<%= render "forms/user" %>
 <div class="book">
 <h1>投稿詳細</h1>
   <p>
     <%= @emotion.created_at %>
     <%= @emotion.body %>
-    <%# いいね機能 %>
+    <img src="<%= @emotion.images %>" width="100">
+<%# タグ機能 %>
+    <%= render "forms/tag"%>
+<%# いいね機能 %>
   <% if @emotion.favorited_by?(current_user) %>
 <li>
   <%= link_to emotion_favorites_path(@emotion), method: :delete do %>
