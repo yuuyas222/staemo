@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def top
     @user = User.find(params[:user_id])
-    @emotions = @user.emotions
+    @emotions = @user.emotions.order(created_at: :desc)
   end
 
   def index
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @emotions = @user.emotions
+    @emotions = @user.emotions.order(created_at: :desc)
   end
 
   def edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    
+    @users = User.order("RANDOM()").limit(3)
   end
 
   def destroy

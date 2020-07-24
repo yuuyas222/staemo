@@ -1,21 +1,25 @@
-<div class="info">
-    <h1>~my page~</h1>
-    <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
-    <p>フレンド登録数　<%=@user.followers.count %>人</p>
-    <p>お気に入りの投稿　<%=@user.favorites.count %>件</p>
-    <p>ユーザー名　<%= @user.name %></p>
-    <p>紹介文　<%= @user.introduction %></p>
-</div>
-
+<div class="info clearfix">
+    <h1>ユーザー情報</h1>
+    <% if @user.profile_image.present? %>
+      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
+    <% end %>
+    <div class="user-info">
+        <p>ユーザー名　<%= @user.name %></p><br>
+        <p>フレンド登録数　<%=@user.followers.count %>人</p><br>
+        <p>お気に入りの投稿　<%=@user.favorites.count %>件</p><br>
+    </div> 
 <% if current_user.id != @user.id %>
-    <% if @emotion.user.followed_by?(current_user) %>
+    <% if @user.followed_by?(current_user) %>
         <p><%= link_to "frend解除", user_frendship_path(@user), method: :delete %></p>
     <% else %>
         <p><%= link_to "frend登録", user_frendships_path(@user), method: :post %></p></p>
     <% end %>    
 <% end %>
+<p><%= link_to "このユーザーについてもっとみる", user_path(@user) %></p><br>
 <% if @user == current_user %>
-    <%= link_to "編集する", edit_user_path(@user) %>
+    <p><%= link_to "編集する", edit_user_path(@user) %></p>
 <% end %>
+</div>
 
-<%= link_to "このユーザーについてもっとみる", user_path(@user) %>

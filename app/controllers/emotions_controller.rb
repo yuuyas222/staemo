@@ -5,7 +5,7 @@ class EmotionsController < ApplicationController
     if params[:tag_name]
       @emotions = Emotion.tagged_with("#{params[:tag_name]}")
     else  
-      @emotions = current_user.emotions.all
+      @emotions = current_user.emotions.all.order(created_at: :desc)
     end
   end
 

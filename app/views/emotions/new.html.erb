@@ -1,15 +1,12 @@
+<div class="book-area clearfix">
 
-<div>
- <p>新規投稿画面</p>
- <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100" %>
- <%= current_user.name %>
- <%= form_for(@emotion) do |f| %>
+<%= form_for(@emotion) do |f| %>
  <p>投稿</p>
  <%= f.text_area :body %>
  <p>画像</p>
  
  <p>タグ</p>
- <%= f.text_field :tag_list, value: @emotion.tag_list.join(',') %>  
- <%= f.submit "投稿する"%>   
- <% end %>
+ <%= f.text_field :tag_list, value: @emotion.tag_list.join(',') %>
+ <%= f.submit "投稿する", class: "btn btn-dark" %>   
+<% end %>
 </div>
