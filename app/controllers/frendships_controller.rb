@@ -1,11 +1,13 @@
 class FrendshipsController < ApplicationController
   
-  def index
-    @user = current_user
-    @frends = @user.follwer.all 
+  def follower
+    @user = User.find_by(id: params[:user_id])
+    @frends = @user.followers.all 
   end
 
-  def show
+  def following
+    @user = User.find_by(id: params[:user_id])
+    @frends = @user.followings.all 
   end
 
   def create

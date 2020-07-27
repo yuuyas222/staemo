@@ -1,0 +1,60 @@
+<div class="search">
+<%= form_tag(user_search_path, method: :get) do %>
+  <%= text_field_tag 'search[content]', "", placeholder: 'キーワードから友達を探そう！', class: "search" %>
+  <%= button_tag type: 'submit' do %>
+  <i class="glyphicon glyphicon-search">
+  </i>
+  <% end %>
+<% end %>
+</div>
+<% if @datas == @content %>
+<h1>検索該当ユーザー</h1>
+    <% @datas.each do |data| %>
+    <div class= "user-emotion clearfix">
+    <%= link_to user_top_path(data) do %>
+        <section class="img-area">
+        <% if data.user.profile_image.present? %>
+        <p><%= attachment_image_tag data.user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
+        <% else %>
+        <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+        <% end %>
+        </section>
+    <% end %>
+        <div class="right-content">  
+        <section>
+        <p>ユーザー名　<span class="strong"><%= data.user.name %></span></p>
+        <p>フレンド登録数　<%= data.user.followers.count %>人</p><br>
+        <p>紹介文</p><br>
+            <span><%= data.user.introduction %><br></span>
+        <p>お気に入りの球団</p><br>
+            <span><%= data.user.favorite_team %></span>
+        </section> 
+        </div>
+    </div>
+    <% end %>
+<% else %>
+<h1>こんなユーザーがいます</h1>
+    <% @datas.each do |data| %>
+    <div class= "user-emotion clearfix">
+    <%= link_to user_top_path(data) do %>
+        <section class="img-area">
+        <% if data.profile_image.present? %>
+        <p><%= attachment_image_tag data, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
+        <% else %>
+        <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+        <% end %>
+        </section>
+    <% end %>
+        <div class="right-content">  
+        <section>
+        <p>ユーザー名　<span class="strong"><%= data.name %></span></p>
+        <p>フレンド登録数　<%= data.followers.count %>人</p><br>
+        <p>紹介文</p><br>
+            <span><%= data.introduction %><br></span>
+        <p>お気に入りの球団</p><br>
+            <span><%= data.favorite_team %></span>
+        </section> 
+        </div>
+    </div>
+    <% end %>
+<% end %>

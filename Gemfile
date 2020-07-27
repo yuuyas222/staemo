@@ -76,7 +76,8 @@ gem 'paranoia'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 
 gem 'acts-as-taggable-on'
-gem 'carrierwave', '~> 1.0.0'
+
+gem 'ransack'
 
 
 

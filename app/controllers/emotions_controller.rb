@@ -1,5 +1,7 @@
 class EmotionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:destroy]
+
 
   def index
     if params[:tag_name]
@@ -18,6 +20,7 @@ class EmotionsController < ApplicationController
 
   def new
     @emotion = Emotion.new
+    @emotion.images.new
   end
 
   def destroy
@@ -27,7 +30,7 @@ class EmotionsController < ApplicationController
     @emotion = Emotion.find(params[:id])
     @user = User.find_by(id: @emotion.user_id)
     @comment = Comment.new
-    @emotion_comments = @emotion.comments.all
+    @emotion_comments = @emotion.comments.all.order(created_at: :desc)
   end
 
   def update
@@ -35,6 +38,13 @@ class EmotionsController < ApplicationController
 
 private
   def emotion_params
-    params.require(:emotion).permit(:body, :tag_list, {images: []})
+    params.require(:emotion).permit(:body, :tag_list, images_images: [])
+  end
+
+  def ensure_correct_user
+    @emotion = Emotion.find(params[:id])
+    unless @emotion.user == current_user
+      redirect_to user_top_path
+    end
   end
 end

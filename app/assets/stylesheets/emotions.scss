@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comment{
+    span{
+        font-weight: bold;
+        font-size: 12px;
+    }
+
     .img-area{
         display: inline-block;
         float: left;
@@ -104,5 +109,26 @@
         display: block;
         width: 100%;
         height: 100px;
+    }
+}
+
+.emotion-img{
+    border-radius: 15px;
+    padding: 10px;
+    margin: 30px 0;
+    color: #000000 !important;
+    margin: 0 auto;
+    
+    .img-show{
+        display: block;
+        margin-bottom: 8px;
+        text-align: center;
+        
+        img{
+            border: 7px solid #770000;
+        }
+    }
+    .img-show:last-child{
+        margin-bottom: 0;
     }
 }

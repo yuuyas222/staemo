@@ -12,13 +12,13 @@ Rails.application.routes.draw do
 
   
   resources :users, only: [:index, :edit, :show, :update, :destroy] do
+    resource :frendships, only: [:create, :destroy]
     get "user_top" => "users#top", as: "top"
-    resources :frendships, only: [:create, :destroy]
     get :follows, on: :member
     get :followers, on: :member
     get "confirm" => "users#confirm", as: "confirm"
-    get "frend" => "frends#index", as: "frend"
-    get "frend_best" => "frends#show", as: "best_frend"
+    get "follower" => "frendships#follower", as: "follower"
+    get "following" => "frendships#following", as: "following"
   end
 
     
@@ -26,6 +26,10 @@ Rails.application.routes.draw do
       resources :comments, only: [:show, :edit, :create, :destroy]
       resource :favorites, only: [:index, :create, :destroy]
     end
+
+    get "search" => "search#search", as: "search"
+    get "user_search" => "search#user_search", as: "user_search"
+    
 
 
  

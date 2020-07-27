@@ -3,13 +3,15 @@
  <h1>スタエモ</h1>
  <ul>
  <% if user_signed_in? %>
-   <li><%= link_to "新規投稿", new_emotion_path(current_user), class: "btn" %><li>
-   <% if current_user.profile_image.present? %>
-    <li><%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %><li>
-   <% else %>
-    <li><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
-   <% end %> 
-   <li><%= current_user.name %><li>
+   <div class="top-search">
+    <%= form_tag(search_path, method: :get) do %>
+      <%= text_field_tag 'search[content]', "", placeholder: '気になる投稿を探そう！', class: "search" %>
+    <%= button_tag type: 'submit' do %>
+      <i class="glyphicon glyphicon-search"></i>
+  　<% end %>
+    <% end %>
+    </div>
+   <li><%= link_to "新規投稿", new_emotion_path(current_user), class: "top-btn" %><li>
  <% else %>
  <div class="header-list">
     <li><%= link_to "ログインする", new_user_session_path, class: "top-btn" %></li>

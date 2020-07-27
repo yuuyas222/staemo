@@ -2,16 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.clearfix::after{
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.container{
-    margin: 0 auto;
-}
-
 // ヘッダ箇所
 header{
     background-color: rgba(0, 0, 0, 0.69);
@@ -20,67 +10,194 @@ header{
     height: 80px;
     position: fixed;
     width: 100%;
+    z-index: 9999;
 
-.fixed{
-    position: fixed;
-    top: 0;
+    input{
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+    }
+
+    .fixed{
+        position: fixed;
+        top: 0;
+    }
+    h1{
+        display: inline-block;
+    }
+
+    ul{
+        display: inline-block;
+        float: right;
+        padding: 0 20px;
+        width: 70%;
+        text-align: right;
+    }
+
+    li{
+    list-style: none;
+    display: inline-block;
+    width: 20%;
+
+    }
+
+    .img{
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 5px;
+        margin-top: 10px;
+    }
+
+    .btn{
+        display: inline;
+        max-width: 180px;
+        min-width: 100px;
+        text-align: left;
+        border: 2px solid #9ec34b;
+        font-size: 16px;
+        color: #9ec34b;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 16px;
+        border-radius: 4px;
+        transition: .4s;
+        margin-right: 20px;
+    }
+    .top-btn{
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        border: 2px solid #9ec34b;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 16px;
+        border-radius: 4px;
+        transition: .4s;
+        margin-left: 5%;
+        text-align: center;
+    }
+
+    .header-list{
+        margin-top: 20px;
+    }
 }
-h1{
+// about箇所
+
+.about{
+    padding-top: 80px;
     
-    display: inline-block;
+    #container{
+        z-index: -9999;
+    }
+    
+    #title-area{
+        position: relative;
+        height: 600px;
+    }
+
+    #title{
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        font-size: 35px;
+    }
+
+    .image1{
+        width: 100%;
+        background-image: url(top1.jpg);
+        background-size: cover;
+        background-blend-mode: darken; 
+        background-color: rgba(0,0,0,0.5);
+        height: 600px;
+    }
+    .image2{
+        width: 100%;
+        background-image: url(top2.jpg);
+        background-size: cover;
+        background-blend-mode: darken; 
+        background-color: rgba(0,0,0,0.5);
+        height: 600px;
+    }
+    .image3{
+        width: 100%;
+        background-image: url(top3.jpg);
+        background-size: cover;
+        background-blend-mode: darken; 
+        background-color: rgba(0,0,0,0.5);
+        height: 600px;
+    }
+    .image4{
+        width: 100%;
+        background-image: url(top4.jpg);
+        background-size: cover;
+        background-blend-mode: darken; 
+        background-color: rgba(0,0,0,0.5);
+        height: 600px;
+    }
+
+    .content{
+        margin-top: 120px;
+        width: 100%;
+        margin: 150px 0 ;
+        text-align: center;
+
+        h1{
+            margin: 0 auto;
+            width: 100%;
+            font-size: 25px;
+        }
+    }
+    
+    .text-content{
+        display: inline-block;
+        background-color: #ffffff;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        opacity: 0.7;
+        color: #000000 !important;
+        width: 60%;
+    }
+
+    .btn{
+        display: block;
+        text-align: center;
+        width: 30%;
+        border: 2px solid ;
+        font-size: 16px;
+        color: #000000 !important;
+        background-color: #f4f5f7;
+        text-decoration: none;
+        padding: 5px 16px;
+        border-radius: 4px;
+        transition: .4s;
+        margin: 0 auto;
+    }
+    
+
 }
 
-ul{
-    display: inline-block;
-    float: right;
-    padding: 0 50px;
+// フッター箇所
+
+.footer{
+    background-color: rgba(0, 0, 0, 0.69);
+    color: #ffffff;
+    opacity: 0.8;
+    height: 100px;
+
+    p{
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    li{
+        display: inline-block;
+        float: right;
+    }
 }
 
-li{
-  list-style: none;
-  display: inline-block;
-}
 
-.img{
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 5px;
-    margin-top: 10px;
-}
-
-.btn{
-    display: inline;
-    max-width: 180px;
-    text-align: left;
-    border: 2px solid #9ec34b;
-    font-size: 16px;
-    color: #9ec34b;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 16px;
-    border-radius: 4px;
-    transition: .4s;
-    margin-right: 20px;
-}
-.top-btn{
-    display: inline-block;
-    max-width: 180px;
-    text-align: left;
-    border: 2px solid #9ec34b;
-    font-size: 16px;
-    color: #9ec34b;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 16px;
-    border-radius: 4px;
-    transition: .4s;
-    margin-right: 20px;
-}
-
-.header-list{
-    margin-top: 20px;
-}
-
-}

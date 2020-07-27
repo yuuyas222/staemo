@@ -1,0 +1,34 @@
+
+
+<h1>検索該当投稿結果</h1>
+
+<% @datas.each do |data| %>
+  <div class= "user-emotion clearfix">
+  <%= link_to user_top_path(data.user) do %>
+    <section class="img-area">
+    <% if data.user.profile_image.present? %>
+      <p><%= attachment_image_tag data.user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
+    <% else %>
+      <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+    <% end %>
+    </section>
+  <% end %>
+    <div class="right-content">  
+    <section>
+      <p>ユーザー名　<span class="strong"><%= data.user.name %></span></p>
+      <p><%= time_ago_in_words(data.created_at) %>前</p><br>
+      <p >
+      お気に入り
+      </p>  
+        <p>コメント数　<%= data.comments.count %> 件</p>
+    </section>
+    <div>  
+      <p>
+    <%= link_to emotion_path(data) do %>
+      <%= data.body %>
+    <% end %>
+      </p>
+    </div>  
+    </div>
+  </div>
+ <% end %> 

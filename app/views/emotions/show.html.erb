@@ -14,26 +14,25 @@
           <% end %>
         </p>
       </div>  
-      <p>
-      <% if @emotion.favorited_by?(current_user) %>
-          <%= link_to emotion_favorites_path(@emotion), method: :delete do %>
-            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-            いいね数　<%= @emotion.favorites.count %> 
-          <% end %>
-      <% else %>
-          <%= link_to emotion_favorites_path(@emotion), method: :post do %>
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-          いいね数　<%= @emotion.favorites.count %> 
-        <% end %>
+      <p id="favorite">
+      <%= render "forms/favorite" %>
       </p>  
-      <% end %>
         <p>コメント数　<%= @emotion.comments.count %> 件</p>
-    <%# タグ機能 %>
+<%# タグ機能 該当タグ一覧にも飛べる%>
         <p>タグ　<%= render "forms/tag" %></p>
       </section>
     </div>
   </div>
-  </p>
+  <%# 投稿画像表記 %>
+<% if @emotion_images.nil? %>
+  <div class="emotion-img">
+  <% @emotion.images.each do |image| %>
+    <div class="img-show">
+    <%= attachment_image_tag image, :image, format: 'jpeg', size: "450x300" %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
   <div class="comment">
   <% @emotion_comments.each do |comment| %>
   　<div class="clearfix">
@@ -47,14 +46,14 @@
       <p><%= comment.user.name %></p>
       </section>
     <% end %>
-      <p class="comment-body"><%= comment.body %></p>
+      <p class="comment-body"><span><%= time_ago_in_words(comment.created_at) %>前</span><br><%= comment.body %></p>
     </div>
   <% end %>
   </div> 
 </div>
 <div class="comment-area clearfix">
   <h5>コメントはこちらから</h5>
-  <%= form_for [@emotion, @comment] do |f| %>
+  <%= form_for [@emotion, @comment], remote: true do |f| %>
    <%= f.text_area :body %>
    <%= f.submit "投稿する", class: "btn" %>
   <% end %>

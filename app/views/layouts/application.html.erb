@@ -4,32 +4,33 @@
     <title>Staemo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     
   </head>
 
-  <body>
+<body>
+
+<div class="top"><%= render "forms/header" %></div>
 <%# <div id="preloader">
   <div id="status">
     <div class="spinner">Loading...</div>
   </div>
 </div> %>
-
-<div class="top"><%= render "forms/header" %></div>
 <% if user_signed_in? %>  
-<div class="flex">
-    <div class="leftbar"><%= render "forms/left_sidebar" %></div>
-  <div class="container"> 
-    <div class="center-content"><%= yield %></div>
-  </div>  
-    <div class="rightbar"><%= render "forms/right_sidebar" %></div>
-</div>
+  <div class="flex">
+    <div class="container"> 
+      <div class="center-content"><%= yield %></div>
+    </div>  
+      <div class="rightbar"><%= render "forms/right_sidebar" %></div>
+  </div>
 <% else %>
-<%= yield %>
+  <div class="about">
+    <%= yield %>
+  </div>
 <% end %>
-
-  </body>
+<div class="footer"><%= render "forms/footer" %></div>
+</body>
 </html>

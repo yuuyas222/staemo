@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_063910) do
+ActiveRecord::Schema.define(version: 2020_07_26_142520) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(version: 2020_07_22_063910) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "image_id"
     t.string "body"
-    t.json "images"
+    t.string "images_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -48,10 +47,10 @@ ActiveRecord::Schema.define(version: 2020_07_22_063910) do
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "image_id"
     t.integer "emotion_id"
     t.integer "comment_id"
     t.string "image_url"
+    t.string "image_id"
   end
 
   create_table "taggings", force: :cascade do |t|
