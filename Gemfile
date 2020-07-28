@@ -72,6 +72,14 @@ gem 'bootstrap-sass', '~>3.4.1'
 gem 'jquery-rails'
 
 gem 'devise'
+gem 'paranoia'
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+
+gem 'acts-as-taggable-on'
+
+gem 'ransack'
+
+
 
 
 gem 'dotenv-rails'

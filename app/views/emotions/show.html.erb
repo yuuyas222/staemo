@@ -1,19 +1,60 @@
-<h1>Emotions#show</h1>
-<div class="info">
-<h1>~my page~</h1>
-<%= @user.profile_image %>
-<p>フレンド一覧　人</p>
-<p>お気に入りの投稿　件</p>
-<%= @user.name %>
-<%= @user.introduction %>
-</div>
 
+<%= render "forms/user" %>
 <div class="book">
 <h1>投稿詳細</h1>
-
-  <div>
-    <%= emotion.created.at %>
-    <%= emotion.body %>
+ <div class= "user-emotion clearfix">
+  　<div class="right-content">  
+      <section>
+        <p>ユーザー名　<span class="strong"><%= @emotion.user.name %></span></p>
+        <p><%= time_ago_in_words(@emotion.created_at) %>前</p><br>
+      <div>  
+        <p>
+          <%= link_to emotion_path(@emotion) do %>
+            <%= @emotion.body %>
+          <% end %>
+        </p>
+      </div>  
+      <p id="favorite">
+      <%= render "forms/favorite" %>
+      </p>  
+        <p>コメント数　<%= @emotion.comments.count %> 件</p>
+<%# タグ機能 該当タグ一覧にも飛べる%>
+        <p>タグ　<%= render "forms/tag" %></p>
+      </section>
+    </div>
   </div>
-
+  <%# 投稿画像表記 %>
+<% if @emotion_images.nil? %>
+  <div class="emotion-img">
+  <% @emotion.images.each do |image| %>
+    <div class="img-show">
+    <%= attachment_image_tag image, :image, format: 'jpeg', size: "450x300" %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+  <div class="comment">
+  <% @emotion_comments.each do |comment| %>
+  　<div class="clearfix">
+    <%= link_to user_top_path(comment.user) do %>
+      <section class="img-area">
+      <% if comment.user.profile_image.present? %>
+        <%= attachment_image_tag comment.user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
+      <% else %>
+        <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
+      <% end %>
+      <p><%= comment.user.name %></p>
+      </section>
+    <% end %>
+      <p class="comment-body"><span><%= time_ago_in_words(comment.created_at) %>前</span><br><%= comment.body %></p>
+    </div>
+  <% end %>
+  </div> 
+</div>
+<div class="comment-area clearfix">
+  <h5>コメントはこちらから</h5>
+  <%= form_for [@emotion, @comment], remote: true do |f| %>
+   <%= f.text_area :body %>
+   <%= f.submit "投稿する", class: "btn" %>
+  <% end %>
 </div>

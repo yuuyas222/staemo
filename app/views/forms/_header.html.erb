@@ -1,9 +1,31 @@
 <header class="clearfix">
  <nav>
- <h1>スタエモ</h1>
+<% unless user_signed_in? %>
+  <%= link_to root_path do %>
+    <h1>スタエモ</h1>  
+  <% end %>
+<% else %>
+  <%= link_to tops_trend_path do %>
+    <h1>スタエモ</h1>  
+  <% end %>
+<% end %>
  <ul>
-    <li>ログインする</li>
-    <li>新規登録する</li>
+ <% if user_signed_in? %>
+   <div class="top-search">
+    <%= form_tag(search_path, method: :get) do %>
+      <%= text_field_tag 'search[content]', "", placeholder: '気になる投稿を探そう！', class: "search" %>
+    <%= button_tag type: 'submit' do %>
+      <i class="glyphicon glyphicon-search"></i>
+  　<% end %>
+    <% end %>
+    </div>
+   <li><%= link_to "新規投稿", new_emotion_path(current_user), class: "top-btn" %><li>
+ <% else %>
+ <div class="header-list">
+    <li><%= link_to "ログインする", new_user_session_path, class: "top-btn" %></li>
+    <li><%= link_to "新規登録する", new_user_registration_path, class: "top-btn" %></li>
+ </div>   
+ <% end %>
  </ul>
  </nav>
 </header>

@@ -1,0 +1,30 @@
+<div class="info clearfix">
+    <h1>ユーザー情報</h1>
+    <% if @user.profile_image.present? %>
+      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
+    <% end %>
+    <div class="user-info">
+        <p>ユーザー名　<%= @user.name %></p><br>
+        <%= link_to user_follower_path(@user) do %>
+          <p>フォロワー　<%=@user.followers.count %>人</p><br>
+        <% end %>
+        <%= link_to user_following_path(@user) do %>
+          <p>フォロー　<%=@user.followings.count %>人</p><br>
+        <% end %>
+        <p>お気に入りの投稿　<%=@user.favorites.count %>件</p><br>
+    </div> 
+<% if current_user.id != @user.id %>
+    <% if @user.followed_by?(current_user) %>
+        <p><%= link_to "フォロー解除", user_frendships_path(@user.id), method: :delete %></p>
+    <% else %>
+        <p><%= link_to "フォロー登録", user_frendships_path(@user.id), method: :post %></p></p>
+    <% end %>    
+<% end %>
+<p><%= link_to "このユーザーについてもっとみる", user_path(@user) %></p><br>
+<% if @user == current_user %>
+    <p><%= link_to "編集する", edit_user_path(@user) %></p>
+<% end %>
+</div>
+

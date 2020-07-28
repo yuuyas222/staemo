@@ -1,21 +1,79 @@
-<div class="info">
-<h1>~my page~</h1>
-<%= @user.profile_image %>
-<p>フレンド一覧　人</p>
-<p>お気に入りの投稿　件</p>
-<%= @user.name %>
-<%= @user.introduction %>
-</div>
-
-<div class="book">
-<h1>過去の投稿の一覧</h1>
-<% @emotions.each do |emotion| %>
-  <div>
-    <%= emotion.profile_image %>
-    <%= @user.name %>
-    <%= emotion.created.at %>
-    <%= emotion.body %>
-  </div>
+<div class="info clearfix">
+    <h1>ユーザー情報</h1>
+    <% if @user.profile_image.present? %>
+      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
+    <% end %>
+    <div class="user-info">
+        <p>ユーザー名　<%= @user.name %></p><br>
+        <%= link_to user_follower_path(@user) do %>
+          <p>フォロワー　<%=@user.followers.count %>人</p><br>
+        <% end %>
+        <%= link_to user_following_path(@user) do %>
+          <p>フォロー　<%=@user.followings.count %>人</p><br>
+        <% end %>
+        <p>お気に入りの投稿　<%=@user.favorites.count %>件</p><br>
+        <p>紹介文</p><br>
+        <span><%= @user.introduction %><br></span>
+        <p>お気に入りの球団</p><br>
+        <span><%= @user.favorite_team %></span>
+        <p>野球と出会ったきっかけ</p><br>
+        <span><%= @user.textbox %><br></span>
+        <p>タグ
+          <% @user.tag_list.each do |tag| %>
+          <%= link_to tag, users_path(tag_name: tag) %>
+        <% end %>　
+        </p><br>
+    </div> 
+<% if current_user.id != @user.id %>
+    <% if @user.followed_by?(current_user) %>
+        <p><%= link_to "フォロー解除", user_frendships_path(@user), method: :delete %></p>
+    <% else %>
+        <p><%= link_to "フォロー登録", user_frendships_path(@user), method: :post %></p></p>
+    <% end %>    
 <% end %>
 </div>
+
+<% @emotions.each do |emotion| %>
+  <div class= "user-emotion clearfix">
+  <%= link_to user_top_path(emotion.user) do %>
+    <section class="img-area">
+    <% if emotion.user.profile_image.present? %>
+      <p><%= attachment_image_tag emotion.user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
+    <% else %>
+      <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+    <% end %>
+    </section>
+  <% end %>
+    <div class="right-content">  
+    <section>
+      <p>ユーザー名　<span class="strong"><%= emotion.user.name %></span></p>
+      <p><%= time_ago_in_words(emotion.created_at) %>前</p><br>
+      <p>
+      <% if emotion.favorited_by?(current_user) %>
+      <%= link_to emotion_favorites_path(emotion), method: :delete do %>
+        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+        いいね数　<%= emotion.favorites.count %> 
+      <% end %>
+  <% else %>
+      <%= link_to emotion_favorites_path(emotion), method: :post do %>
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+        いいね数　<%= emotion.favorites.count %> 
+      <% end %>
+      </p>  
+  <% end %>
+        <p>コメント数　<%= emotion.comments.count %> 件</p>
+    </section>
+    <div>  
+      <p>
+    <%= link_to emotion_path(emotion) do %>
+      <%= emotion.body %>
+    <% end %>
+      </p>
+    </div>  
+    </div>
+  </div>
+<% end %>
+
 

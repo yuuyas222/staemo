@@ -1,0 +1,39 @@
+<div class="container">  
+  <div class="devise-content">
+
+  <h2>新規登録画面</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <p>ユーザー名</p>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <p>メールアドレス</p>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <p></p>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <p>パスワード再度確認</p>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "新規登録" %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+

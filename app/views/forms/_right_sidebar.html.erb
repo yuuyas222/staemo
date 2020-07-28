@@ -1,0 +1,10 @@
+<% if current_user.profile_image.present? %>
+    <p><%= attachment_image_tag current_user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
+   <% else %>
+    <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+   <% end %> 
+   <p>ユーザ名：<%= current_user.name %></p>
+<p><%= link_to "マイページにいく", user_top_path(current_user) %><p>
+<p><%= link_to "最近の投稿", tops_trend_path %></p>
+<p><%= link_to "友達を探す", user_search_path(current_user) %><p>
+<p><%= link_to "ログアウトする", destroy_user_session_path, method: :delete %></p>

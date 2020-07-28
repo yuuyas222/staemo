@@ -1,0 +1,14 @@
+<div class="book-area clearfix">
+
+<%= form_with model: @emotion do |f| %>
+ <p>投稿</p>
+ <%= f.text_area :body %>
+ <p>画像</p>
+ <%= f.file_field :images_images, multiple: true %>
+ <%= f.attachment_field :images_images, multiple: true %>
+ <%= f.attachment_field :images_images, multiple: true %>
+ <p>タグ</p>
+ <%= f.text_field :tag_list, value: @emotion.tag_list.join(',') %>
+ <%= f.submit "投稿する", class: "btn btn-dark" %>   
+<% end %>
+</div>
