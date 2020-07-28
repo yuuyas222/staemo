@@ -11,7 +11,7 @@ class SearchController < ApplicationController
             @content = params["search"]["content"]
             @datas = user_search_for(@content)
         else
-            @datas = User.order("RANDOM()").limit(3)
+            @datas = User.all.sample(3)
         end
     end
 
