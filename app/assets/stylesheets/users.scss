@@ -31,12 +31,12 @@
             color: #000000 !important;
         }
     }
-            p{
-                display: inline-block;
-                margin-right: 10px;
-                font-weight: bold;
-                color: black !important;
-            }
+    p{
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: bold;
+        color: black !important;
+    }
 
     .img-area{
         width: 20%;
@@ -156,5 +156,16 @@
         height: 120px;
         border-radius: 50%;
         margin: 10px 5px 10px 10px;
+    }
+}
+
+.book{
+    p{
+        a{
+            color: #000000 !important;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #000000;
+        }
     }
 }

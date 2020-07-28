@@ -17,7 +17,7 @@
 //= require_tree .
 
 $(function(){
-   $("#title-area").skippr({
+    $("#title-area").skippr({
        transition: "slide",
        speed: 1000, 
        easing: "easeInOutQuart",
@@ -28,17 +28,9 @@ $(function(){
        autoPlayDuration: 8000,
        keyboardOnAlways: true,
        hidePrevious: false
-   });
-
-   var images = document.getElementsByClassName('image1');
-　　for (var i = 0; i < images.length; i++) {
-    var img = new Image();
-    img.onload = function() {
-        $("#title").fadeToggle(6000)
-    }
-    img.src = images[i].src;
-};
-
+    });
+    $("#title").fadeToggle(6000)
+    
     
 // ロード中にスピーナーのコード　確認要   
 //  window.onload = function() {

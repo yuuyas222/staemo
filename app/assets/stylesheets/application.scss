@@ -27,15 +27,13 @@ body{
     background-color: rgba(255,255,255,0.3);
     color: aliceblue;
     background-blend-mode:lighten;
+    font-family: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
 }
 
 a{
     color: white !important;
 }
-a:link{
-    text-decoration: none;
-    color: black !important;
-}
+
 a:hover{
     opacity: 0.6;
 }
@@ -53,6 +51,21 @@ h1{
 
 .container{
     margin: 0 auto;
+}
+
+.btn{
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+    background-color: dimgray;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    margin-left: 5%;
+    text-align: center;
 }
 // 呼び込み中レイアウト
 

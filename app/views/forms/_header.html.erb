@@ -1,6 +1,14 @@
 <header class="clearfix">
  <nav>
- <h1>スタエモ</h1>
+<% unless user_signed_in? %>
+  <%= link_to root_path do %>
+    <h1>スタエモ</h1>  
+  <% end %>
+<% else %>
+  <%= link_to tops_trend_path do %>
+    <h1>スタエモ</h1>  
+  <% end %>
+<% end %>
  <ul>
  <% if user_signed_in? %>
    <div class="top-search">
