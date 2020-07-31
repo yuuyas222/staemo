@@ -19,7 +19,8 @@
   　<% end %>
     <% end %>
     </div>
-   <li><%= link_to "新規投稿", new_emotion_path(current_user), class: "top-btn" %><li>
+   <li><%= link_to "新規投稿", new_emotion_path(current_user), class: "top-btn" %></li>
+   <li id="hm-icon"><%= link_to "新規投稿", new_emotion_path(current_user), class: "top-btn" %></li>
  <% else %>
  <div class="header-list">
     <li><%= link_to "ログインする", new_user_session_path, class: "top-btn" %></li>

@@ -85,6 +85,16 @@ header{
         margin-top: 20px;
     }
 }
+
+// header　メディアクエリ
+header{
+    @media screen and (max-width: width 425px) {
+        #hm-icon{
+            display: inline-block;
+        }
+    }
+}
+
 // about箇所
 
 .about{
