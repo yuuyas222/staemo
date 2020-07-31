@@ -19,10 +19,11 @@ Rails.application.routes.draw do
     get "confirm" => "users#confirm", as: "confirm"
     get "follower" => "frendships#follower", as: "follower"
     get "following" => "frendships#following", as: "following"
+    get "user_index" => "emotions#user_index", as: "emotion_index"
   end
 
     
-    resources :emotions do
+    resources :emotions, only: [:show, :create, :new] do
       resources :comments, only: [:show, :edit, :create, :destroy]
       resource :favorites, only: [:index, :create, :destroy]
     end

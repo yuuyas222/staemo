@@ -50,19 +50,9 @@
     <section>
       <p>ユーザー名　<span class="strong"><%= emotion.user.name %></span></p>
       <p><%= time_ago_in_words(emotion.created_at) %>前</p><br>
-      <p>
-      <% if emotion.favorited_by?(current_user) %>
-      <%= link_to emotion_favorites_path(emotion), method: :delete do %>
-        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-        いいね数　<%= emotion.favorites.count %> 
-      <% end %>
-  <% else %>
-      <%= link_to emotion_favorites_path(emotion), method: :post do %>
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
-        いいね数　<%= emotion.favorites.count %> 
-      <% end %>
+      <p id="favorite">
+      <%= render "forms/favorite", emotion: emotion %>
       </p>  
-  <% end %>
         <p>コメント数　<%= emotion.comments.count %> 件</p>
     </section>
     <div>  
