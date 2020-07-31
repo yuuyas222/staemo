@@ -85,6 +85,16 @@ header{
         margin-top: 20px;
     }
 }
+
+// header　メディアクエリ
+header{
+    @media screen and (max-width: width 425px) {
+        #hm-icon{
+            display: inline-block;
+        }
+    }
+}
+
 // about箇所
 
 .about{
@@ -114,7 +124,7 @@ header{
 
     .image1{
         width: 100%;
-        background-image: url(top1.jpg);
+        background-image: image-url("top1.jpg");
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
@@ -122,7 +132,7 @@ header{
     }
     .image2{
         width: 100%;
-        background-image: url(top2.jpg);
+        background-image: image-url("top2.jpg");
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
@@ -130,7 +140,7 @@ header{
     }
     .image3{
         width: 100%;
-        background-image: url(top3.jpg);
+        background-image: image-url("top3.jpg");
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
@@ -138,7 +148,7 @@ header{
     }
     .image4{
         width: 100%;
-        background-image: url(top4.jpg);
+        background-image: image-url("top4.jpg");
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
