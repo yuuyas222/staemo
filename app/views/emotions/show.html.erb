@@ -13,9 +13,10 @@
             <%= @emotion.body %>
           <% end %>
         </p>
-      </div>  
+      </div> 
+ <%#いいね機能（非同期通信）  %>
       <p id="favorite">
-      <%= render "forms/favorite" %>
+      <%= render "forms/favorite", emotion: @emotion %>
       </p>  
         <p>コメント数　<%= @emotion.comments.count %> 件</p>
 <%# タグ機能 該当タグ一覧にも飛べる%>

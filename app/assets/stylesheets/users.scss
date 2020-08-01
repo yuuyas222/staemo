@@ -42,6 +42,7 @@
         width: 20%;
         height: 130px;
         display: inline-block;
+        top: 0;
     }
 
     .img{
@@ -168,4 +169,199 @@
             border-bottom: 2px solid #000000;
         }
     }
+}
+
+
+// メディアクエリ　各ページの投稿内容
+@media screen and (max-width:425px){
+    .user-emotion{
+        background-color: #ffffff;
+        border-radius: 15px;
+        padding: 5px;
+        margin: 30px 0;
+        opacity: 0.7;
+        color: #000000 !important;
+        position: relative;
+        height: 150px;
+    
+        section{
+            display: inline-block;
+            width: 100%;
+        }
+    
+        .right-content{
+            width: 60%;
+            display: inline-block;
+            position: absolute;
+            top: 20px;
+            right: 10px;
+
+            #favorite{
+                display: block;
+            }
+            p{
+                display: inline-block;
+                margin-right: 10px;
+                margin-top: 5px;
+                font-weight: bold;
+                color: black !important;
+                font-size: 10px;
+            }
+    
+            a{
+                color: #000000 !important;
+                font-size: 12px;
+            }
+
+            div{
+                a{
+                    font-size: 16px;
+                }
+            }
+        }
+        p{
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+            color: black !important;
+        }
+    
+        .img-area{
+            width: 30%;
+            height: 130px;
+            display: inline-block;
+            position: absolute;
+            top: 20px;
+            left: 10px;
+        }
+    
+        .img{
+            display: inline-block;
+            width: 100%;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 5px;
+            margin-top: 10px;
+            border: 3px solid;
+        }
+    
+        
+    
+        .strong{
+            font-weight: bold;
+        }
+    
+        a:link{
+            text-decoration: none;
+            // color: black !important;
+        }
+        a:hover{
+            opacity: 0.6;
+        }
+    
+        
+    }
+    //メディアクエリ　ユーザー情報部分 
+    .info{
+        border: 5px solid;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f4f5f7;
+        color: #000000 !important;
+
+        h1{
+            display: block;
+            font-size: 16px;
+        }
+    
+        a{
+            color: #000000 !important;
+        }
+        
+        .btn{
+            display: inline-block;
+            p{
+            display: block;
+            font-size: 12px;
+            border-radius: 4px;
+            transition: .4s;
+            }
+        }
+    
+        p{
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000 !important;
+            background: linear-gradient(transparent 70%, #93FFAB 70%);
+            display: inline-block;
+        }
+
+        .img{
+            display: inline-block;
+            width: 20%;
+            height: 20%;
+            border-radius: 50%;
+            margin: 10px 5px 10px 10px;
+        }
+    }
+
+    .user-info{
+        display: inline-block;  
+        float: right;
+        width: 60%;
+        p{
+            background: linear-gradient(transparent 70%, #93FFAB 70%);
+            margin-bottom: 20px;
+        }    
+        span{
+            display: block;
+            border-bottom: 2px #000000;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .img{
+            display: inline-block;
+            width: 20%;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 5px;
+            margin-top: 10px;
+            border: 3px solid;
+        }
+    }
+        .user-edit{
+            display: inline-block;  
+            float: left;
+            width: 70%;
+            padding: 10px;
+        p{
+            background: linear-gradient(transparent 70%, #93FFAB 70%);
+            margin-bottom: 20px;
+        }    
+        span{
+            display: block;
+            border-bottom: 2px #000000;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        input{
+            width: 100%;
+        }
+
+        textarea{
+            width: 100%;
+        }
+        
+
+        .img{
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 10px 5px 10px 10px;
+        }
+    }
+    
 }

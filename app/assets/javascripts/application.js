@@ -17,6 +17,7 @@
 //= require_tree .
 
 $(function(){
+    // トップ画面スライド
     $("#title-area").skippr({
        transition: "slide",
        speed: 1000, 
@@ -30,6 +31,14 @@ $(function(){
        hidePrevious: false
     });
     $("#title").fadeToggle(6000)
+
+    // ハンバーガーアイコン　425px以下時作動
+
+    $('.menu-trigger').on('click', function(event){
+        $(this).toggleClass('open');
+        $('#hm-menu').fadeToggle();
+        event.preventDefault();
+    });
     
     
 // ロード中にスピーナーのコード　確認要   

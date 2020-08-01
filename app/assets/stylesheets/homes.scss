@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // ヘッダ箇所
-header{
+.top{
     background-color: rgba(0, 0, 0, 0.69);
     color: #ffffff !important;
     padding: 0 50px;
@@ -24,6 +24,9 @@ header{
     h1{
         display: inline-block;
         color: #ffffff !important;
+        line-height: 80px;
+        margin: 0;
+
     }
 
     ul{
@@ -51,21 +54,8 @@ header{
         margin-top: 10px;
     }
 
-    .btn{
-        display: inline;
-        max-width: 180px;
-        min-width: 100px;
-        text-align: left;
-        border: 2px solid #9ec34b;
-        font-size: 16px;
-        color: #9ec34b;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 5px 16px;
-        border-radius: 4px;
-        transition: .4s;
-        margin-right: 20px;
-    }
+
+    
     .top-btn{
         display: inline-block;
         width: 100%;
@@ -85,6 +75,126 @@ header{
         margin-top: 20px;
     }
 }
+
+    #hm-menu{
+        display: none;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.69) !important;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+        border-radius: 5px;
+        z-index: 99999;
+        position: fixed;
+        top: 85px;
+        right: 10px;
+        padding: 7px;
+    }
+// header　メディアクエリ
+
+    @media screen and (max-width:425px){
+       
+        .rightbar{
+            display: none !important;
+        }
+
+
+        #hm-icon{
+            position: fixed;
+            right: 20px;
+            top: 30px;
+            z-index: 99999;
+          }
+          .menu-trigger,
+          .menu-trigger span{
+            display: inline-block;
+            transition: all .4s;
+            box-sizing: border-box;
+          }
+          .menu-trigger{
+            position: relative;
+            width: 25px;
+            height: 20px;
+          }
+          .menu-trigger span{
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 2px;
+          }
+
+        //   ハンバーガーアイコン
+          .menu-trigger span:nth-of-type(1){
+            top: 0;
+          }
+          .menu-trigger span:nth-of-type(2){
+            top: 10px;
+          }
+          .menu-trigger span:nth-of-type(3){
+            bottom: 0;
+          }
+
+        // ハンバーガーアイコン（クリック後）
+          .menu-trigger.open span{
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        // ボタン、タイトルのサイズ
+        .top{    
+        
+            ul{
+                display: inline-block;
+                padding: 0 20px;
+                width: 70%;
+                text-align: right;
+                height: 80px;
+            }
+
+            .top-btn{
+                display: none;
+            }   
+
+            .top-search{
+                text-align: center;
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                
+                input{
+                    background-color: rgba(0, 0, 0, 0.4) !important;
+                    width: 100%;
+                    height: 30px;
+                    display: inline-block;
+                    z-index: 1;
+                }
+            
+                button{
+                    display: inline-block;
+                    position: absolute;
+                    top: 50%;
+                    width: 30px;
+                    height: 24px;
+                    right: 0%;
+                    background-color: inherit;
+                    border: none;
+                    z-index: 2;
+                    text-decoration: none;
+                }
+            
+                button::after{
+                    text-decoration: none;
+                }
+                
+            }
+        }
+        
+    
+    }
+
+       
+          
+
 // about箇所
 
 .about{
@@ -105,8 +215,7 @@ header{
 
     #title{
         display: none;
-        width: 100%;
-        position: absolute;
+        width: 100;
         top: 45%;
         left: 45%;
         font-size: 35px;

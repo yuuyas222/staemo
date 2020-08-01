@@ -3,11 +3,11 @@ class EmotionsController < ApplicationController
   before_action :ensure_correct_user, only: [:destroy]
 
 
-  def index
+  def user_index
     if params[:tag_name]
       @emotions = Emotion.tagged_with("#{params[:tag_name]}")
     else  
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:user_id])
       @emotions = @user.emotions.all.order(created_at: :desc)
     end
   end
@@ -24,8 +24,6 @@ class EmotionsController < ApplicationController
     @emotion.images.new
   end
 
-  def destroy
-  end
 
   def show
     @emotion = Emotion.find(params[:id])
@@ -34,8 +32,6 @@ class EmotionsController < ApplicationController
     @emotion_comments = @emotion.comments.all.order(created_at: :desc)
   end
 
-  def update
-  end
 
 private
   def emotion_params

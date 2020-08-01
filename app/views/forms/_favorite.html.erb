@@ -1,11 +1,11 @@
-<% if @emotion.favorited_by?(current_user) %>
-        <%= link_to emotion_favorites_path(@emotion), method: :delete, remote: true do %>
+<% if emotion.favorited_by?(current_user) %>
+        <%= link_to emotion_favorites_path(emotion), method: :delete, remote: true do %>
             <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-            いいね数　<%= @emotion.favorites.count %> 
+            いいね数　<%= emotion.favorites.count %> 
           <% end %>
 <% else %>
-        <%= link_to emotion_favorites_path(@emotion), method: :post, remote: true do %>
+        <%= link_to emotion_favorites_path(emotion), method: :post, remote: true do %>
           <i class="fa fa-heart-o" aria-hidden="true"></i>
-          いいね数　<%= @emotion.favorites.count %> 
+          いいね数　<%= emotion.favorites.count %> 
         <% end %>
 <% end %>
