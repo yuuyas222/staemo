@@ -20,6 +20,7 @@
 // 全体レイアウト
 
 body{
+    margin: 0 auto;
     background-image: image-url("stadium.jpg");
     background-position: 50% 75%;
     background-size: cover;
@@ -50,7 +51,7 @@ h1{
 }
 
 .container{
-    margin: 0 auto;
+    width: 100%;
 }
 
 .btn{

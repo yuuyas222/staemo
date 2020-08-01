@@ -9,6 +9,6 @@
  <%= f.attachment_field :images_images, multiple: true %>
  <p>タグ</p>
  <%= f.text_field :tag_list, value: @emotion.tag_list.join(',') %>
- <%= f.submit "投稿する", class: "btn btn-dark" %>   
+ <%= f.submit "投稿する", class: "btn" %>   
 <% end %>
 </div>
