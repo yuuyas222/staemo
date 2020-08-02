@@ -13,10 +13,13 @@ class EmotionsController < ApplicationController
   end
 
   def create
-    emotion = Emotion.new(emotion_params)
-    emotion.user_id = current_user.id
-    emotion.save
-    redirect_to user_top_path(current_user)
+    @emotion = Emotion.new(emotion_params)
+    @emotion.user_id = current_user.id
+    if @emotion.save
+      redirect_to user_top_path(current_user)
+    else
+      render "new"
+    end
   end
 
   def new

@@ -78,6 +78,7 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'acts-as-taggable-on'
 
 gem 'ransack'
+gem 'rails-i18n'
 
 
 
