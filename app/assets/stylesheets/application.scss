@@ -173,6 +173,10 @@ h1{
         margin-right: 5px;
         margin-top: 10px;
     }
+
+    .media-new{
+        display: none;
+    }
 }
 
 // 検索フォームレイアウト
@@ -230,6 +234,15 @@ h1{
         text-decoration: none;
     }
     
+}
+
+// エラー時表記箇所レイアウト
+
+.notice{
+    width: 100%;
+    p{
+        color: red !important;
+    }
 }
 
 

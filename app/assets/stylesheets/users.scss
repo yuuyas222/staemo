@@ -42,7 +42,7 @@
         width: 20%;
         height: 130px;
         display: inline-block;
-        top: 0;
+        
     }
 
     .img{
@@ -302,6 +302,19 @@
             height: 20%;
             border-radius: 50%;
             margin: 10px 5px 10px 10px;
+        }
+
+        .profile-img{
+            display: block;
+        }
+
+        button{
+            display: block;
+            margin: 0;
+            width: 40%;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.69) !important;
+            color: #ffffff !important;
         }
     }
 
