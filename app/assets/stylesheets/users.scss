@@ -73,7 +73,22 @@
 }
 
 .profile-img{
-    display: inline-block;
+    display: block;
+
+    .img{
+        margin: 3px 6px !important;
+    }
+
+
+    button{
+        display: inline-block;
+        margin: 0 6px;
+        width: 120px;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.69) !important;
+        color: #ffffff !important;
+        font-size: 10px;
+    }
 }
 
 
@@ -126,11 +141,17 @@
         margin-bottom: 10px;
     }
     }
-    .user-edit{
+.user-edit{
         display: inline-block;  
         float: left;
         width: 70%;
         padding: 10px;
+
+    .btn{
+        margin: 0;
+        width: 30%;
+    }
+    
     p{
         background: linear-gradient(transparent 70%, #93FFAB 70%);
         margin-bottom: 20px;
@@ -149,7 +170,14 @@
     textarea{
         width: 100%;
     }
+
+    a{
+        text-align: 29px;
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
     }
+}
 
     .img{
         display: inline-block;
@@ -343,7 +371,7 @@
             border: 3px solid;
         }
     }
-        .user-edit{
+    .user-edit{
             display: inline-block;  
             float: left;
             width: 70%;
@@ -365,6 +393,10 @@
 
         textarea{
             width: 100%;
+        }
+
+        .btn{
+            margin: 0;
         }
         
 

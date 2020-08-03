@@ -1,3 +1,132 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ユーザーのコメントレイアウト
+.comment{
+    span{
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .img-area{
+        display: inline-block;
+        float: left;
+    
+        p{
+            text-align: center;
+            color: #000000 !important;
+            font-size: 18px;
+            background-color: #f4f5f7;
+            margin-top: 10px;
+            border-radius: 8px;
+            border-color: #000000;
+        }
+    }
+    .img{
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-right: 5px;
+        margin-top: 10px;
+    }
+
+    .comment-body{
+        display: inline-block;
+        position: relative; 
+        margin: 50px 0 0 20px;
+        padding: 17px 13px;
+        border-radius: 12px;
+        background: #f4f5f7;
+        color: #000000 !important;
+        width: 60%;
+    }
+
+    .comment-body::after{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 18px; 
+        left: -24px;
+        border: 12px solid transparent;
+        border-right: 12px solid #f4f5f7;
+    }    
+
+    
+}
+.comment-area{
+    background-image: image-url("comment.jpg");
+    background-size: cover;
+    background-color: rgba(255,255,255,0.3);
+    background-blend-mode:lighten;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid;
+
+    #comment_body{
+        display: block;
+        width: 100%;
+        height: 150px;
+        color: #000000;
+        font-weight: bold;
+        padding: 10px;
+        border: 3px #f4f5f7 solid;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    textarea{
+        display: block;
+        width: 100%;
+        height: 40%;
+    }
+
+    .btn{
+        display: block;
+        float: left;
+        margin: 10px 0;
+    }
+
+}
+
+
+// コメントメディアクエリ
+@media screen and (max-width:425px){
+    .emotion-img{
+        width: 100%;
+
+        .img-show{
+            display: block;
+            margin-bottom: 8px;
+            text-align: center;
+        
+            img{
+                border: 7px solid #770000;
+                width: 100%;
+            }
+        }
+    }
+
+    .comment{
+        span{
+            font-weight: bold;
+            font-size: 12px;
+        }
+    
+        .img-area{
+            
+        
+            p{
+                text-align: center;
+                color: #000000 !important;
+                font-size: 18px;
+                background-color: #f4f5f7;
+                margin-top: 10px;
+                border-radius: 8px;
+                border-color: #000000;
+            }
+        }
+    }
+}
