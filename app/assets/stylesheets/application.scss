@@ -51,7 +51,7 @@ h1{
 }
 
 .container{
-    width: 100%;
+    width: 70%;
 }
 
 .btn{
@@ -245,6 +245,12 @@ h1{
     }
 }
 
+// メディアクエリ時　rightbar消える為　全体幅変更
+@media screen and (max-width:425px){
+    .container{
+        width: 100%;
+    }
+}
 
 
 
