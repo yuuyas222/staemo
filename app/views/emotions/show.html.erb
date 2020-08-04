@@ -1,9 +1,19 @@
 
 <%= render "forms/user" %>
+<% if @emotion.errors.any? %>
+    <div class="notice">
+            <p><%= @emotion.errors.count %>件エラーがあります。</p>
+            <% @emotion.errors.full_messages.each do |message| %>
+            <ul>
+                <li><%= message %></li>
+            </ul>
+            <% end %>
+    </div>
+    <% end %>
 <div class="book">
 <h1>投稿詳細</h1>
  <div class= "user-emotion clearfix">
-  　<div class="right-content">  
+  　<div class="emotion-content">  
       <section>
         <p>ユーザー名　<span class="strong"><%= @emotion.user.name %></span></p>
         <p><%= time_ago_in_words(@emotion.created_at) %>前</p><br>
@@ -54,7 +64,7 @@
 </div>
 <div class="comment-area clearfix">
   <h5>コメントはこちらから</h5>
-  <%= form_for [@emotion, @comment], remote: true do |f| %>
+  <%= form_for [@emotion, @comment] do |f| %>
    <%= f.text_area :body %>
    <%= f.submit "投稿する", class: "btn" %>
   <% end %>

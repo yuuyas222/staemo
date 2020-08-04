@@ -5,7 +5,7 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <p>ユーザー名</p>
-      <%= f.email_field :name, autofocus: true %>
+      <%= f.text_field :name, autofocus: true %>
     </div>
 
     <div class="field">

@@ -15,6 +15,7 @@ class EmotionsController < ApplicationController
   def create
     @emotion = Emotion.new(emotion_params)
     @emotion.user_id = current_user.id
+    @emotion.score = Language.get_data(emotion_params[:body])
     if @emotion.save
       redirect_to user_top_path(current_user)
     else
@@ -40,6 +41,10 @@ private
   def emotion_params
     params.require(:emotion).permit(:body, :tag_list, images_images: [])
   end
+
+  # def language_emotion_params
+  #   params.require(:emotion).permit(:body, :user_)
+  # end
 
   def ensure_correct_user
     @emotion = Emotion.find(params[:id])
