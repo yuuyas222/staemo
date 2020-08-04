@@ -42,7 +42,6 @@
     list-style: none;
     display: inline-block;
     width: 20%;
-
     }
 
     .img{
@@ -71,9 +70,22 @@
         text-align: center;
     }
 
-    .header-list{
-        margin-top: 20px;
+    .home-top-btn{
+        border: 2px solid #9ec34b;
+        font-size: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 5px;
+        border-radius: 4px;
+        transition: .4s;
+        margin-left: 5%;
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        margin-top: 25px;
     }
+
+    
 }
 
     #hm-menu{
@@ -145,7 +157,27 @@
         }
 
         // ボタン、タイトルのサイズ
-        .top{    
+        .top{ 
+            
+            li{
+                list-style: none;
+                display: inline-block;
+                width: 45%;
+                display: inline-block;
+                line-height: 80px;
+            }
+
+            .home-top-btn{
+                border: 2px solid #9ec34b;
+                font-size: 10px;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 5px 5px;
+                border-radius: 4px;
+                transition: .4s;
+                margin-left: 5%;
+                text-align: center;
+            }
         
             ul{
                 display: inline-block;
@@ -219,7 +251,8 @@
 
     #title{
         display: none;
-        width: 100;
+        width: 100%;
+        position: absolute;
         top: 45%;
         left: 45%;
         font-size: 35px;
@@ -326,6 +359,62 @@
     
 
 }
+
+@media screen and (max-width:425px){
+    
+    .about{
+        .image1{    
+            height: 500px;
+        }
+        .image2{    
+            height: 500px;
+        }
+        .image3{    
+            height: 500px;
+        }
+        .image4{    
+            height: 500px;
+        }
+
+        #title-area{
+            position: relative;
+            height: 500px;
+        }
+
+        #title{
+            display: none;
+            position: absolute !important;
+            width: 100% !important;
+            top: 45%;
+            left: 45%;
+            font-size: 35px;
+        }
+
+        .text-content{
+            padding: 30px;
+            margin: 30px 0;
+            opacity: 0.7;
+            color: #000000 !important;
+            width: 100%;
+            font-size: 13px !important;
+
+            h1,h2{
+                font-size: 20px !important;
+            }
+        
+            
+            p{
+                text-align: left;
+                margin-top: 30px;
+            }
+        }
+
+        .btn{
+            width: 40%;
+        }
+    }
+}
+
 
 // フッター箇所
 

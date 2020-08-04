@@ -31,10 +31,8 @@
       <%= render "forms/right_sidebar" %>
     </div>
  <% else %>
- <div class="header-list">
-    <li><%= link_to "ログインする", new_user_session_path, class: "top-btn" %></li>
-    <li><%= link_to "新規登録する", new_user_registration_path, class: "top-btn" %></li>
- </div>   
+    <li><%= link_to "ログインする", new_user_session_path, class: "home-top-btn" %></li>
+    <li><%= link_to "新規登録する", new_user_registration_path, class: "home-top-btn" %></li> 
  <% end %>
  </ul>
  </nav>
