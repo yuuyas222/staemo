@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite
+    @user = User.find_by(id: params[:user_id])
+    @favorites = @user.favorites.all
+  end
+
   def show
     @user = User.find(params[:id])
     @emotions = @user.emotions.order(created_at: :desc)

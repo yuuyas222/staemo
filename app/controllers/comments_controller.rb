@@ -3,8 +3,11 @@ class CommentsController < ApplicationController
     emotion = Emotion.find(params[:emotion_id])
     comment = current_user.comments.new(comment_params)
     comment.emotion_id = emotion.id
-    comment.save
-    redirect_to request.referer
+    if comment.save
+      redirect_to request.referer
+    else
+      render "emotions/show"
+    end
   end
 
   def destroy
