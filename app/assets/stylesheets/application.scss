@@ -245,6 +245,28 @@ h1{
     }
 }
 
+#flash{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    font-weight: bold;
+    display: none;
+}
+
+// 投稿スコアによっての色わけ　赤　0.4~1.0　緑0.3~-0.5 青0.6~1.0 　
+
+.score-color1{
+    border: 3px dashed red;
+}
+.score-color2{
+    border: 3px dashed green;
+}
+.score-color3{
+    border: 3px dashed blue;
+}
+
 // メディアクエリ時　rightbar消える為　全体幅変更
 @media screen and (max-width:425px){
     .container{

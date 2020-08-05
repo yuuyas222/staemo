@@ -17,6 +17,7 @@ class EmotionsController < ApplicationController
     @emotion.user_id = current_user.id
     @emotion.score = Language.get_data(emotion_params[:body])
     if @emotion.save
+      flash[:notice] = "投稿が完了しました。"
       redirect_to user_top_path(current_user)
     else
       render "new"

@@ -80,6 +80,8 @@ gem 'acts-as-taggable-on'
 gem 'ransack'
 gem 'rails-i18n'
 
+gem 'kaminari'
+
 
 
 

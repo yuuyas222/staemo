@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_142520) do
+ActiveRecord::Schema.define(version: 2020_08_05_122513) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_142520) do
     t.integer "emotion_id"
     t.string "body"
     t.integer "user_id"
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "emotions", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_142520) do
     t.integer "user_id"
     t.string "body"
     t.string "images_id"
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "favorites", force: :cascade do |t|

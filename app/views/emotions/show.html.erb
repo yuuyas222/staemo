@@ -12,7 +12,13 @@
     <% end %>
 <div class="book">
 <h1>投稿詳細</h1>
- <div class= "user-emotion clearfix">
+<% if @emotion&.score > 0.3 %>
+ <div class= "user-emotion score-color1 clearfix">
+<% elsif @emotion&.score > -0.6 %>
+ <div class= "user-emotion score-color2 clearfix">
+<% else %> 
+ <div class= "user-emotion score-color3 clearfix">
+<% end %>
   　<div class="emotion-content">  
       <section>
         <p>ユーザー名　<span class="strong"><%= @emotion.user.name %></span></p>
@@ -29,6 +35,7 @@
       <%= render "forms/favorite", emotion: @emotion %>
       </p>  
         <p>コメント数　<%= @emotion.comments.count %> 件</p>
+        <p><%= @emotion&.score %></p>
 <%# タグ機能 該当タグ一覧にも飛べる%>
         <p>タグ　<%= render "forms/tag" %></p>
       </section>
@@ -57,7 +64,15 @@
       <p><%= comment.user.name %></p>
       </section>
     <% end %>
-      <p class="comment-body"><span><%= time_ago_in_words(comment.created_at) %>前</span><br><%= comment.body %></p>
+    <% if comment&.score > 0.3 %>
+      <p class="comment-body score-color1">
+    <% elsif comment&.score > -0.6 %>
+      <p class="comment-body score-color1">
+    <% else %> 
+      <p class="comment-body score-color1">
+    <% end %>
+          <span><%= time_ago_in_words(comment.created_at) %>前</span><br><%= comment.body %>
+      </p>
     </div>
   <% end %>
   </div> 

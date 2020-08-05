@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
     def search
         @content = params["search"]["content"]
-        @datas = search_for(@content)
+        @datas = search_for(@content).page(params[:page])
     end
 
     def user_search

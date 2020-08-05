@@ -21,7 +21,10 @@ class User < ApplicationRecord
     passive_relationships.find_by(following_id: user.id).present?
   end
 
-  enum favorite_team: [:東京]
+  enum favorite_team:{
+    未選択: 0,東京ヤクルトスワローズ: 1,読売ジャイアンツ: 2,阪神タイガース: 3,広島東洋カープ: 4,横浜DeNAベーイスターズ: 5,中日ドラゴンズ: 6,
+    福岡ソフトバンク: 7,埼玉西武ライオンズ: 8,千葉ロッテマリンズ: 9,東北楽天ゴールデンイーグルス: 10,オリックスバッファローズ: 11,北海道日本ハムファイターズ: 12
+  }
 
   
   
