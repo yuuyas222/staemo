@@ -14,6 +14,7 @@
     word-break: break-all;
     overflow: auto;
 
+
     section{
         display: inline-block;
         width: 80%;
@@ -181,6 +182,14 @@
     }
 
     textarea{
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    select{
+        height: 23px;
+        display: block;
         width: 100%;
     }
 

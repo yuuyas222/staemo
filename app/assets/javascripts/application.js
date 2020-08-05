@@ -39,6 +39,11 @@ $(function(){
         $('#hm-menu').fadeToggle();
         event.preventDefault();
     });
+
+    // フラッシュメッセージー表示
+    $("#flash").fadeToggle(3000, function(){
+        $('#flash').fadeToggle(3000);
+    });
     
     
 // ロード中にスピーナーのコード　確認要   
