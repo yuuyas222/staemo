@@ -13,10 +13,15 @@ class EmotionsController < ApplicationController
   end
 
   def create
-    emotion = Emotion.new(emotion_params)
-    emotion.user_id = current_user.id
-    emotion.save
-    redirect_to user_top_path(current_user)
+    @emotion = Emotion.new(emotion_params)
+    @emotion.user_id = current_user.id
+    @emotion.score = Language.get_data(emotion_params[:body])
+    if @emotion.save
+      flash[:notice] = "投稿が完了しました。"
+      redirect_to user_top_path(current_user)
+    else
+      render "new"
+    end
   end
 
   def new
@@ -37,6 +42,10 @@ private
   def emotion_params
     params.require(:emotion).permit(:body, :tag_list, images_images: [])
   end
+
+  # def language_emotion_params
+  #   params.require(:emotion).permit(:body, :user_)
+  # end
 
   def ensure_correct_user
     @emotion = Emotion.find(params[:id])

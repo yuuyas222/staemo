@@ -1,2 +1,4 @@
 
-$('#favorite').html("<%= j(render 'forms/favorite', emotion: @emotion) %>");
+$('#favorite_<%= @emotion.id %>').html("<%= j(render 'forms/favorite', emotion: @emotion) %>");
+
+

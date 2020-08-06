@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :show, :update, :destroy] do
     resource :frendships, only: [:create, :destroy]
     get "user_top" => "users#top", as: "top"
+    get "user_favorites" => "users#favorite", as: "favorites"
     get :follows, on: :member
     get :followers, on: :member
     get "confirm" => "users#confirm", as: "confirm"

@@ -4,7 +4,6 @@
     <title>Staemo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,11 +12,7 @@
 
 <body>
 <div class="top"><%= render "forms/header" %></div>
-<%# <div id="preloader">
-  <div id="status">
-    <div class="spinner">Loading...</div>
-  </div>
-</div> %>
+<%= render "forms/flash"%>
 <% if user_signed_in? %>  
   <div class="flex">
     <div class="container"> 

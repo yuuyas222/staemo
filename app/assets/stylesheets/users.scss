@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// ユーザーの投稿内容　レイアウト
 
 .user-emotion{
     background-color: #ffffff;
@@ -10,6 +11,9 @@
     margin: 30px 0;
     opacity: 0.7;
     color: #000000 !important;
+    word-break: break-all;
+    overflow: auto;
+
 
     section{
         display: inline-block;
@@ -19,6 +23,13 @@
     .right-content{
         width: 70%;
         display: inline-block;
+
+        .body-layouts{
+            white-space: nowrap;  
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         p{
             display: inline-block;
             margin-right: 10px;
@@ -26,7 +37,7 @@
             font-weight: bold;
             color: black !important;
         }
-
+        
         a{
             color: #000000 !important;
         }
@@ -42,7 +53,7 @@
         width: 20%;
         height: 130px;
         display: inline-block;
-        top: 0;
+        
     }
 
     .img{
@@ -73,7 +84,22 @@
 }
 
 .profile-img{
-    display: inline-block;
+    display: block;
+
+    .img{
+        margin: 3px 6px !important;
+    }
+
+
+    button{
+        display: inline-block;
+        margin: 0 6px;
+        width: 120px;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.69) !important;
+        color: #ffffff !important;
+        font-size: 10px;
+    }
 }
 
 
@@ -82,7 +108,10 @@
     margin-top: 20px;
     padding: 10px;
     background-color: #f4f5f7;
+    opacity: 0.7;
     color: #000000 !important;
+    border-radius: 8px;
+    border-color: rgba(0, 0, 0, 0.6) !important;
 
     a{
         color: #000000 !important;
@@ -121,23 +150,29 @@
     }    
     span{
         display: block;
-        border-bottom: 2px #000000;
+        border: dashed 2px #5b8bd0;
         font-size: 15px;
         margin-bottom: 10px;
     }
     }
-    .user-edit{
+.user-edit{
         display: inline-block;  
         float: left;
         width: 70%;
         padding: 10px;
+
+    .btn{
+        margin: 0;
+        width: 40%;
+    }
+    
     p{
         background: linear-gradient(transparent 70%, #93FFAB 70%);
         margin-bottom: 20px;
     }    
     span{
         display: block;
-        border-bottom: 2px #000000;
+        border: dashed 2px #5b8bd0;
         font-size: 15px;
         margin-bottom: 10px;
     }
@@ -148,8 +183,23 @@
 
     textarea{
         width: 100%;
+        height: 100%;
+        display: block;
     }
+
+    select{
+        height: 23px;
+        display: block;
+        width: 100%;
     }
+
+    a{
+        text-align: 29px;
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
 
     .img{
         display: inline-block;
@@ -187,6 +237,10 @@
         section{
             display: inline-block;
             width: 100%;
+        }
+
+        .emotion-content{
+            width: 80%;
         }
     
         .right-content{
@@ -303,6 +357,19 @@
             border-radius: 50%;
             margin: 10px 5px 10px 10px;
         }
+
+        .profile-img{
+            display: block;
+        }
+
+        button{
+            display: block;
+            margin: 0;
+            width: 40%;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.69) !important;
+            color: #ffffff !important;
+        }
     }
 
     .user-info{
@@ -330,7 +397,7 @@
             border: 3px solid;
         }
     }
-        .user-edit{
+    .user-edit{
             display: inline-block;  
             float: left;
             width: 70%;
@@ -352,6 +419,10 @@
 
         textarea{
             width: 100%;
+        }
+
+        .btn{
+            margin: 0;
         }
         
 

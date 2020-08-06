@@ -13,7 +13,9 @@
         <%= link_to user_following_path(@user) do %>
           <p>フォロー　<%=@user.followings.count %>人</p><br>
         <% end %>
+        <%= link_to user_favorites_path(@user) do %>
         <p>お気に入りの投稿　<%=@user.favorites.count %>件</p><br>
+        <% end %>
         <p>紹介文</p><br>
         <span><%= @user.introduction %><br></span>
         <p>お気に入りの球団</p><br>
@@ -37,7 +39,13 @@
 
 <div class="book">
   <% @emotions.each do |emotion| %>
-  <div class= "user-emotion clearfix">
+<% if emotion&.score > 0.3 %>
+ <div class= "user-emotion score-color1 clearfix">
+<% elsif emotion&.score > -0.6 %>
+ <div class= "user-emotion score-color2 clearfix">
+<% else %> 
+ <div class= "user-emotion score-color3 clearfix">
+<% end %>
     <%= link_to user_top_path(emotion.user) do %>
       <section class="img-area">
       <% if emotion.user.profile_image.present? %>
@@ -66,6 +74,7 @@
     </div>
   </div>
   <% end %>
+  <%= paginate @emotions %>
 </div>
 
 

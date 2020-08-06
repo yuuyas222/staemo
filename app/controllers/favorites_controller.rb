@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
   
-  def index
-  end
+  
 
   def create
     @emotion = Emotion.find(params[:emotion_id])

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def top
     @user = User.find(params[:user_id])
-    @emotions = @user.emotions.order(created_at: :desc)
+    @emotions = @user.emotions.page(params[:page]).order(created_at: :desc)
   end
 
   def index
@@ -12,9 +12,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite
+    @user = User.find_by(id: params[:user_id])
+    @favorites = @user.favorites.all
+  end
+
   def show
     @user = User.find(params[:id])
-    @emotions = @user.emotions.order(created_at: :desc)
+    @emotions = @user.emotions.page(params[:page]).order(created_at: :desc)
   end
 
   def edit
@@ -33,13 +38,18 @@ class UsersController < ApplicationController
   def destroy
     @user = current_user
     @user.destroy
+    flash[:notice] = "退会が完了しました。"
     redirect_to root_path
   end
 
   def update
-    user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_top_path(current_user)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "編集が完了しました。"
+      redirect_to user_top_path(current_user)
+    else
+      render "edit"
+    end
   end
 
   private

@@ -3,8 +3,12 @@ class CommentsController < ApplicationController
     emotion = Emotion.find(params[:emotion_id])
     comment = current_user.comments.new(comment_params)
     comment.emotion_id = emotion.id
-    comment.save
-    redirect_to request.referer
+    comment.score = Language.get_data(comment_params[:body])
+    if comment.save
+      redirect_to request.referer
+    else
+      render "emotions/show"
+    end
   end
 
   def destroy
@@ -14,6 +18,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :user_id, :emotion_id)
   end
 end
