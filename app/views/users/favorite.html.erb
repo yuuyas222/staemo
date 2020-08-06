@@ -1,0 +1,41 @@
+<h1>お気に入りの投稿一覧</h1>
+
+<% @favorites.each do |favorite| %>
+<% if favorite.emotion&.score > 0.3 %>
+ <div class= "user-emotion score-color1 clearfix">
+<% elsif favorite.emotion.score > -0.6 %>
+ <div class= "user-emotion score-color2 clearfix">
+<% else %> 
+ <div class= "user-emotion score-color3 clearfix">
+<% end %>
+  <%= link_to user_top_path(favorite.emotion.user) do %>
+    <section class="img-area">
+    <% if favorite.emotion.user.profile_image.present? %>
+      <p><%= attachment_image_tag favorite.emotion.user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
+    <% else %>
+      <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+    <% end %>
+    </section>
+  <% end %>
+    <div class="right-content">  
+    <section>
+      <p>ユーザー名　<span class="strong"><%= favorite.emotion.user.name %></span></p>
+      <p><%= time_ago_in_words(favorite.emotion.created_at) %>前</p><br>
+      <%# いいね機能（非同期通信） %> 
+      <p id="favorite_<%= favorite.emotion.id %>">
+        <%= render "forms/favorite", emotion: favorite.emotion %>
+      </p> 
+      </p>  
+        <p>コメント数　<%= favorite.emotion.comments.count %> 件</p>
+        <p>投稿画像　<%= favorite.emotion.images.count %> 件</p> 
+    </section>
+    <div class="body-layouts">  
+      <p>
+    <%= link_to emotion_path(favorite.emotion) do %>
+      <%= favorite.emotion.body %>
+    <% end %>
+      </p>
+    </div>  
+    </div>
+  </div>
+<% end %>
