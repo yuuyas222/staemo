@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      emotion: 投稿
+      user: ユーザー
+    attributes:
+      emotion:
+        body: 投稿本文
+      user:
+        name: ユーザー名
