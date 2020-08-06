@@ -22,7 +22,7 @@
       <section>
         <p>ユーザー名　<span class="strong"><%= emotion.user.name %></span></p>
         <p><%= time_ago_in_words(emotion.created_at) %>前</p><br>
-        <p id="favorite">
+        <p id="favorite_<%= emotion.id %>">
         <%= render "forms/favorite", emotion: emotion %>
         </p> 
           <p>コメント数　<%= emotion.comments.count %> 件</p>

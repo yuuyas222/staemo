@@ -31,7 +31,7 @@
         </p>
       </div> 
  <%#いいね機能（非同期通信）  %>
-      <p id="favorite">
+      <p id="favorite_<%= @emotion.id %>">
       <%= render "forms/favorite", emotion: @emotion %>
       </p>  
         <p>コメント数　<%= @emotion.comments.count %> 件</p>
