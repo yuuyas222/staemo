@@ -164,7 +164,7 @@
                 display: inline-block;
                 width: 45%;
                 display: inline-block;
-                line-height: 80px;
+                line-height: 30px;
             }
 
             .home-top-btn{
@@ -296,6 +296,10 @@
         width: 100%;
         margin: 150px 0 ;
         text-align: center;
+        :hover{
+            opacity: 0.6;
+        }
+
 
         h1{
             margin: 0 auto;
@@ -397,6 +401,7 @@
             color: #000000 !important;
             width: 100%;
             font-size: 13px !important;
+        
 
             h1,h2{
                 font-size: 20px !important;

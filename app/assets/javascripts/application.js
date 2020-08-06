@@ -10,10 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery 
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require jquery
+
 //= require_tree .
 
 $(function(){
@@ -45,27 +45,5 @@ $(function(){
         $('#flash').fadeToggle(3000);
     });
     
-    
-// ロード中にスピーナーのコード　確認要   
-//  window.onload = function() {
-//         let spinner = document.getElementById('preloader');
-//         spinner.classList.add('loaded');
-//     }
-    
-//     var _window = $(window),
-//         _header = $('header'),
-//         topBottom;
-    
-//     _window.on('scroll', function(){
-//         topBottom = $('.top').height();
-//         if(_window.scrollTop() > topBottom){
-//             _header.addClass('fixed');
-//         }
-//         else{
-//             _header.removeClass('fixed');
-//         }
-//     });
-
-//     _window.trigger('scroll');
     
 });
