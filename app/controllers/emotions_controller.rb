@@ -1,6 +1,6 @@
 class EmotionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:destroy]
+  before_action :ensure_correct_user, only: [:create]
 
 
   def user_index
@@ -42,10 +42,6 @@ private
   def emotion_params
     params.require(:emotion).permit(:body, :tag_list, images_images: [])
   end
-
-  # def language_emotion_params
-  #   params.require(:emotion).permit(:body, :user_)
-  # end
 
   def ensure_correct_user
     @emotion = Emotion.find(params[:id])

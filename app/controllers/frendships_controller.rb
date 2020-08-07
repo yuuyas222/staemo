@@ -1,5 +1,5 @@
 class FrendshipsController < ApplicationController
-  
+  before_action :authenticate_user!
   def follower
     @user = User.find_by(id: params[:user_id])
     @frends = @user.followers.all 
