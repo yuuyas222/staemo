@@ -115,6 +115,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.1)
+      devise (>= 4.7.1)
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -336,6 +338,7 @@ DEPENDENCIES
   chromedriver-helper (~> 1.1.0)
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
   dotenv-rails
   jbuilder (~> 2.5)
   jquery-rails
