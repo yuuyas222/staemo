@@ -1,6 +1,5 @@
 class EmotionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:create]
 
 
   def user_index
@@ -43,10 +42,4 @@ private
     params.require(:emotion).permit(:body, :tag_list, images_images: [])
   end
 
-  def ensure_correct_user
-    @emotion = Emotion.find(params[:id])
-    unless @emotion.user == current_user
-      redirect_to user_top_path
-    end
-  end
 end
