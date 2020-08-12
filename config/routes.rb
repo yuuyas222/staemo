@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-
-
-  get 'tops/trend' => "tops#index"
-  get 'tops/favorite' => "tops#favorite"
-  root "homes#about"
-
+    root "homes#about"
+    get 'tops/trend' => "tops#index"
+    get 'tops/favorite' => "tops#favorite"
   devise_for :users, controller: {
     sessions: "users/sessions",
     registrations: "users/registrations"

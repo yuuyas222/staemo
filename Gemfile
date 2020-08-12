@@ -79,6 +79,7 @@ gem 'acts-as-taggable-on'
 
 gem 'ransack'
 gem 'rails-i18n'
+gem 'devise-i18n'
 
 gem 'kaminari'
 

@@ -1,4 +1,5 @@
 class TopsController < ApplicationController
+  before_action :authenticate_user!
   def index
     if params[:tag_name]
       @emotions = Emotion.tagged_with("#{params[:tag_name]}")

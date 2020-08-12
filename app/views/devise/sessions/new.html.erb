@@ -3,6 +3,7 @@
   <h4>ログイン画面</h4>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
       <p>ユーザー名</p>
       <%= f.text_field :name, autofocus: true %>
