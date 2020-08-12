@@ -82,7 +82,7 @@ gem 'rails-i18n'
 
 gem 'kaminari'
 
-
+gem 'google-cloud-language'
 
 
 
