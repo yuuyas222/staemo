@@ -83,7 +83,7 @@ gem 'devise-i18n'
 
 gem 'kaminari'
 
-
+gem 'google-cloud-language'
 
 
 
