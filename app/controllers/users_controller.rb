@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    @users = User.order("RANDOM()").limit(3)
+    @users = User.all.sample(3)
   end
 
   def destroy
