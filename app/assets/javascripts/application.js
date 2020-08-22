@@ -13,9 +13,43 @@
 //= require jquery 
 //= require rails-ujs
 //= require activestorage
-
 //= require_tree .
 
+// Javascriptの記載
+"use strict";
+{
+    // 投稿、コメントの文字数をリアルタイムで表示
+    window.addEventListener("DOMContentLoaded", () => {
+        const text = document.querySelector("#emotion_body");
+        const text_length = document.querySelector("#text-length");
+        const comment = document.querySelector("#comment_body");
+        const comment_length = document.querySelector("#comment-length");
+        
+        if(comment || text != null){
+            if(comment === null){
+                text.addEventListener("input",() => {
+                text_length.textContent = `${text.value.length}文字`;
+                    if(text.value.length > 140){
+                        text_length.textContent = "制限文字数を超えています";
+                    }
+                });
+            }
+            
+            if (text === null){
+                comment.addEventListener("input",() => {
+                    comment_length.textContent = `${comment.value.length}文字`;
+                    if(comment.value.length > 50){
+                        comment_length.textContent = "制限文字数を超えています";
+                    }
+                }); 
+            }
+        }
+    });
+
+    
+}
+
+// Jqueryの記載
 $(function(){
     // トップ画面スライド
     $("#title-area").skippr({
