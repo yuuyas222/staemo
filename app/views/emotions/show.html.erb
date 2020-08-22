@@ -79,6 +79,7 @@
 </div>
 <div class="comment-area clearfix">
   <h5>コメントはこちらから</h5>
+   <span id="comment-length"></span>
   <%= form_for [@emotion, @comment] do |f| %>
    <%= f.text_area :body %>
    <%= f.submit "投稿する", class: "btn" %>
