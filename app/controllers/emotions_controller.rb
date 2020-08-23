@@ -1,11 +1,10 @@
 class EmotionsController < ApplicationController
   before_action :authenticate_user!
 
-
   def user_index
     if params[:tag_name]
       @emotions = Emotion.tagged_with("#{params[:tag_name]}")
-    else  
+    else
       @user = User.find_by(id: params[:user_id])
       @emotions = @user.emotions.all.order(created_at: :desc)
     end
@@ -28,7 +27,6 @@ class EmotionsController < ApplicationController
     @emotion.images.new
   end
 
-
   def show
     @emotion = Emotion.find(params[:id])
     @user = User.find_by(id: @emotion.user_id)
@@ -36,10 +34,9 @@ class EmotionsController < ApplicationController
     @emotion_comments = @emotion.comments.all.order(created_at: :desc)
   end
 
+  private
 
-private
   def emotion_params
     params.require(:emotion).permit(:body, :tag_list, images_images: [])
   end
-
 end

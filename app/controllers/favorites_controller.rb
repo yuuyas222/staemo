@@ -1,6 +1,5 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
-  
 
   def create
     @emotion = Emotion.find(params[:emotion_id])

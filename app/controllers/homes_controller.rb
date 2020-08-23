@@ -4,5 +4,4 @@ class HomesController < ApplicationController
       redirect_to user_top_path(current_user)
     end
   end
-    
 end
