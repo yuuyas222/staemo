@@ -2,12 +2,12 @@ class FrendshipsController < ApplicationController
   before_action :authenticate_user!
   def follower
     @user = User.find_by(id: params[:user_id])
-    @frends = @user.followers.all 
+    @frends = @user.followers.all
   end
 
   def following
     @user = User.find_by(id: params[:user_id])
-    @frends = @user.followings.all 
+    @frends = @user.followings.all
   end
 
   def create
@@ -21,5 +21,4 @@ class FrendshipsController < ApplicationController
     follow.destroy
     redirect_to request.referer
   end
-
 end

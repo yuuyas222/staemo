@@ -8,8 +8,8 @@ module Language
       params = {
         document: {
           type: 'PLAIN_TEXT',
-          content: text
-        }
+          content: text,
+        },
       }.to_json
       uri = URI.parse(api_url)
       https = Net::HTTP.new(uri.host, uri.port)

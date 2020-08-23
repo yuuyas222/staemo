@@ -13,11 +13,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find_by(id: params[:id],emotion_id: params[:emotion_id]).destroy
+    Comment.find_by(id: params[:id], emotion_id: params[:emotion_id]).destroy
     redirect_to request.referer
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:body, :user_id, :emotion_id)
   end
