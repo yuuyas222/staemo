@@ -2,6 +2,63 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// ユーザー紹介文がない際、表示するモーダル（user_topのみ）
+
+#mask{
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 99999;
+}
+
+#introduction-confirm{
+    height: 200px;
+    padding: 10px;
+    width: 35%;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 15px;
+    color: #000 !important;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 99999;
+    position: fixed;
+
+    a{
+        cursor: pointer;
+        color: #000000 !important;
+        border-bottom: 1px solid #000000;
+    }
+        
+    a.hidden{
+        display: none;
+    }
+
+    .img{
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid;
+        margin: 0 auto;
+    }
+}
+
+#mask.hidden{
+    display: none;
+}
+
+#introduction-confirm.hidden{
+    display: none;
+}
+
+
 // ユーザーの投稿内容　レイアウト
 
 .user-emotion{
@@ -224,6 +281,39 @@
 
 // メディアクエリ　各ページの投稿内容
 @media screen and (max-width:425px){
+    #introduction-confirm{
+        height: 200px;
+        padding: 10px;
+        width: 70%;
+        background-color: rgba(255,255,255,0.6);
+        border-radius: 15px;
+        color: #000 !important;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 99999;
+    
+        a{
+            cursor: pointer;
+            color: #000000 !important;
+            border-bottom: 1px solid #000000;
+        }
+            
+        a.hidden{
+            display: none;
+        }
+    
+        .img{
+            display: block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid;
+            margin: 0 auto;
+        }
+    }
     .user-emotion{
         background-color: #ffffff;
         border-radius: 15px;
