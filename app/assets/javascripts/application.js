@@ -44,9 +44,24 @@
                 }); 
             }
         }
+
+        const mask = document.getElementById("mask");
+        const after = document.getElementById("edit-after");
+        const confirm = document.getElementById("introduction-confirm");
+
+        if(mask || after || confirm != null){
+            mask.addEventListener("click", () => {
+                mask.classList.add("hidden");
+                confirm.classList.add("hidden");
+            });
+            after.addEventListener("click", () => {
+                mask.classList.add("hidden");
+                confirm.classList.add("hidden");
+            });
+        }
+    
     });
 
-    
 }
 
 // Jqueryの記載
