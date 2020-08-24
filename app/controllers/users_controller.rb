@@ -65,7 +65,4 @@ class UsersController < ApplicationController
       redirect_to user_top_path
     end
   end
-
-  
-
 end

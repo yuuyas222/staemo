@@ -1,4 +1,4 @@
 class Image < ApplicationRecord
-    belongs_to :emotion
-    attachment :image
+  belongs_to :emotion
+  attachment :image
 end
