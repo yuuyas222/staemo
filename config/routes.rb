@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :emotions, only: [:show, :create, :new] do
-    resources :comments, only: [:show, :edit, :create, :destroy]
+    resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:index, :create, :destroy]
   end
 

@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Homes", type: :request do
-  describe "GET /about" do
-    it "returns http success" do
-      get "/homes/about"
-      expect(response).to have_http_status(:success)
+  describe "ホーム画面について" do
+    it "ホーム画面がroot_pathで表示される" do
+      get "/"
+      expect(response).to have_http_status(200)
     end
   end
 end

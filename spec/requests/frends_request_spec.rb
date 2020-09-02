@@ -1,17 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "Frends", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
-      get "/frends/index"
-      expect(response).to have_http_status(:success)
+RSpec.describe "Follower", type: :request do
+  describe "フォロー機能について" do
+    it "followerにする" do
+      post "/users/:user_id/frendships"
+      expect(response).to have_http_status(302)
     end
-  end
-
-  describe "GET /show" do
-    it "returns http success" do
-      get "/frends/show"
-      expect(response).to have_http_status(:success)
+    it "followerを外す" do
+      delete "/users/:user_id/frendships"
+      expect(response).to have_http_status(302)
     end
   end
 end
