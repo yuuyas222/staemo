@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "homes#about"
   get 'tops/trend' => "tops#index"
   get 'tops/favorite' => "tops#favorite"
+  post 'homes/guest_sign_in' => "homes#new_guest"
   devise_for :users, controller: {
     sessions: "users/sessions",
     registrations: "users/registrations",
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :emotions, only: [:show, :create, :new] do
-    resources :comments, only: [:show, :edit, :create, :destroy]
+    resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:index, :create, :destroy]
   end
 

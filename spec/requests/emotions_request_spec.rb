@@ -1,38 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe "Emotions", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
-      get "/emotions/index"
-      expect(response).to have_http_status(:success)
+  describe "新規投稿画面について" do
+    it "投稿画面に飛べる" do
+      get "/emotions/new"
+      expect(response).to have_http_status(302)
+    end
+
+    it "投稿に成功する" do
+      post "/emotions"
+      expect(response).to have_http_status(302)
     end
   end
 
-  describe "GET /create" do
-    it "returns http success" do
-      get "/emotions/create"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /destroy" do
-    it "returns http success" do
-      get "/emotions/destroy"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /show" do
-    it "returns http success" do
+  describe "投稿の詳細" do
+    it "投稿詳細を表示できる" do
       get "/emotions/show"
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(302)
     end
   end
 
-  describe "GET /update" do
-    it "returns http success" do
-      get "/emotions/update"
-      expect(response).to have_http_status(:success)
-    end
-  end
+  
 end
