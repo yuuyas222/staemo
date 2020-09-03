@@ -33,6 +33,7 @@
  <% else %>
     <li><%= link_to "ログインする", new_user_session_path, class: "home-top-btn" %></li>
     <li><%= link_to "新規登録する", new_user_registration_path, class: "home-top-btn" %></li> 
+    <li><%= link_to "簡単ログイン（ゲストログイン）", homes_guest_sign_in_path, method: :post, class: "home-top-btn" %></li> 
  <% end %>
  </ul>
  </nav>
