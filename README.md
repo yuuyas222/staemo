@@ -45,7 +45,7 @@ Bootstrap
 - JSライブラリ
 jQuery
 
--テストフレームワーク
+- テストフレームワーク
 RSpec
 
 - その他
