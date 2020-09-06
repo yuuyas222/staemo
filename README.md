@@ -31,6 +31,27 @@
 ・ベテラン観戦者同士で違いに撮った写真や感想を共有できる
 ・観戦者同士を繋ぎ、コミュニティーも作れる。
 
+### 開発環境
+- OS
+Linux(CentOS)
+
+- 言語
+HTML,CSS,JavaScript,Ruby,SQL
+
+- フレームワーク
+Ruby on Rails
+Bootstrap
+
+- JSライブラリ
+jQuery
+
+-テストフレームワーク
+RSpec
+
+- その他
+Vagrant,VirtualBox,
+
+
 ## 設計書
 
 ### 機能一覧
