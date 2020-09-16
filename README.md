@@ -49,7 +49,7 @@ jQuery
 RSpec
 
 - その他
-Vagrant,VirtualBox,
+Vagrant,VirtualBox,AWS
 
 
 ## 設計書
