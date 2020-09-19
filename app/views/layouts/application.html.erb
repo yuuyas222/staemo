@@ -13,21 +13,18 @@
   </head>
 
 <body>
-<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
-<div class="top"><%= render "forms/header" %></div>
+<%= render "forms/header" %>
 <%= render "forms/flash" %>
-<% if user_signed_in? %>  
-  <div class="flex">
-    <div class="container"> 
-      <div class="center-content"><%= yield %></div>
-    </div>  
-      <div class="rightbar"><%= render "forms/right_sidebar" %></div>
-  </div>
-<% else %>
-  <div class="about">
-    <%= yield %>
-  </div>
-<% end %>
+<main class="mdl-layout__content">
+    <div class="page-content">
+    <% if user_signed_in? %>  
+      <%= yield %>
+      <%= render "forms/right_sidebar" %>
+    <% else %>
+        <%= yield %>
+    <% end %>
+    </div>
+  </main>
 <div class="footer"><%= render "forms/footer" %></div>
 </body>
 </html>
