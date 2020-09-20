@@ -1,7 +1,6 @@
 
-
-<div id="container">
-    <div id="title-area">
+<div class="mdl-grid ">
+    <div id="title-area" class="mdl-cell mdl-cell--10-col">
         <div class="image1">
             <h1 id="title">遭遇したことない<br>感動を。</h1>
         </div>
@@ -12,11 +11,10 @@
         <div class="image4"></div>
     </div>
 
-    <div class="content">    
-        <section class="text-content">
-            <h1>当サイトについて</h1>
-        </section>
-    </div>
+  <div class="text-content clearfix">
+        <h1>当サイトについて</h1>
+  </div>
+        
 
     <div class="content clearfix">
         <section class="text-content">
@@ -36,14 +34,13 @@
             <p>当サイトは最近プロ野球に興味を持ち始めた方に特におすすめです。<br>既に日常的に球場に足を運んでいるユーザーの投稿を目にすれば、なおいっそうプロ野球に興味もつこと間違いなし。<br>当サイトで「わくわく感」を高めつつ、共に球場で応援してみてはいかがでしょうか。</p>
         </section>
     </div>
-
-    <div class="content">    
-        <section class="text-content">
-            <h1>あなたの大好きで、<br>誰かの心を動かしてみませんか。</h1>
-        </section>
-            <%= link_to "登録はこちらから", new_user_registration_path, class: "btn" %>
+    
+    <div class="content">
+        <h1>あなたの大好きで、<br>誰かの心を動かしてみませんか。</h1>
+        <%= link_to "登録はこちらから", new_user_registration_path, class: "btn btn-primary" %>
     </div>
     
 </div>
+    
 
 

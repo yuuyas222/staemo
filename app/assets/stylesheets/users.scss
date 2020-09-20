@@ -59,7 +59,56 @@
 }
 
 
-// ユーザーの投稿内容　レイアウト
+// ユーザー　レイアウト
+
+.img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-top: 10px;
+    border: 3px solid;
+}
+
+.demo-card-square.mdl-card {
+    width: 50%;
+    height: 400px;
+    margin: 200px auto;
+  }
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    background:  url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+    width: 100%;
+
+    h2{
+        width: 30%;
+        display: inline-block;
+    }
+    h3{
+        width: 60%;
+    }
+    
+    a{
+        display: inline-block;
+        font-size: 14px;
+        color: #fff !important;
+    }  
+}
+
+.mdl-card__supporting-text {
+    a{
+        font-size: 14px;
+        color: #000 !important;
+    }  
+}
+
+.mdl-card__actions{
+    a{
+        font-size: 14px;
+        color: #000 !important;
+    }
+}
 
 .user-emotion{
     background-color: #ffffff;
@@ -197,21 +246,7 @@
     }
 
 
-    .user-info{
-        display: inline-block;  
-        float: right;
-        width: 70%;
-    p{
-        background: linear-gradient(transparent 70%, #93FFAB 70%);
-        margin-bottom: 20px;
-    }    
-    span{
-        display: block;
-        border: dashed 2px #5b8bd0;
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-    }
+    
 .user-edit{
         display: inline-block;  
         float: left;
