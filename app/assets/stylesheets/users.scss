@@ -58,6 +58,10 @@
     display: none;
 }
 
+.flex{
+    display: flex;
+}
+
 
 // ユーザー　レイアウト
 
@@ -72,18 +76,21 @@
 }
 
 .demo-card-square.mdl-card {
-    width: 50%;
+    width: 30%;
     height: 400px;
-    margin: 200px auto;
-  }
+    margin: 200px 5%;
+}
 .demo-card-square > .mdl-card__title {
+    text-align: center;
     color: #fff;
-    background:  url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+    background:   bottom right 15% no-repeat #46B6AC;
     width: 100%;
 
-    h2{
-        width: 30%;
-        display: inline-block;
+    h1{
+        width: 100%;
+        display: block;
+        word-break: break-all;
+        overflow: auto;
     }
     h3{
         width: 60%;
@@ -97,6 +104,7 @@
 }
 
 .mdl-card__supporting-text {
+    
     a{
         font-size: 14px;
         color: #000 !important;
@@ -121,70 +129,12 @@
     overflow: auto;
 
 
-    section{
-        display: inline-block;
-        width: 80%;
-    }
-
-    .right-content{
-        width: 70%;
-        display: inline-block;
-
-        .body-layouts{
-            white-space: nowrap;  
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        p{
-            display: inline-block;
-            margin-right: 10px;
-            margin-top: 15px;
-            font-weight: bold;
-            color: black !important;
-        }
-        
-        a{
-            color: #000000 !important;
-        }
-    }
-    p{
-        display: inline-block;
-        margin-right: 10px;
-        font-weight: bold;
-        color: black !important;
-    }
-
-    .img-area{
-        width: 20%;
-        height: 130px;
-        display: inline-block;
-        
-    }
-
-    .img{
-        display: inline-block;
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin-right: 5px;
-        margin-top: 10px;
-        border: 3px solid;
-    }
+    // section{
+    //     display: inline-block;
+    //     width: 80%;
+    // }
 
     
-
-    .strong{
-        font-weight: bold;
-    }
-
-    a:link{
-        text-decoration: none;
-        // color: black !important;
-    }
-    a:hover{
-        opacity: 0.6;
-    }
 
     
 }
@@ -302,15 +252,191 @@
     }
 }
 
-.book{
-    p{
+.user-info{
+    margin: 0 auto;  
+    
+    .demo-card-square.mdl-card {
+        width: 40%;
+        height: 600px;
+        margin: 200px auto;
+    }
+    .demo-card-square > .mdl-card__title {
+        color: #fff;
+        background:   bottom right 15% no-repeat #46B6AC;
+        width: 100%;
+    
+        h1{
+            width: 100%;
+            display: block;
+            word-break: break-all;
+            overflow: auto;
+        }
+        
         a{
-            color: #000000 !important;
-            font-size: 18px;
-            font-weight: bold;
-            border-bottom: 2px solid #000000;
+            display: inline-block;
+            font-size: 14px;
+            color: #fff !important;
+            margin: 0 auto;
+        }  
+    }
+    
+    .mdl-card__supporting-text {
+        width: 100%;
+        
+        a{
+            font-size: 14px;
+            color: #000 !important;
+            margin: 0 auto;
+        }  
+    }
+    
+    .mdl-card__actions{
+        height: 400px;
+        h5{
+            width: 100%;
+            display: block;
+            word-break: break-all;
+            overflow: auto;
+            margin: 5px ;
+        }
+        span{
+            font-size: 12px;
+            border: 1px dashed #46B6AC;
+            display: block;
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+        a{
+            font-size: 14px;
+            color: #000 !important;
         }
     }
+}
+
+.edit{
+    .demo-card-square.mdl-card {
+        height: 800px;
+    }
+    .mdl-card__actions{
+        height: 500px;
+        textarea,input,select{
+            display: block;
+            width: 100%;
+            padding: 3px;
+            margin: 3px;
+        }
+
+        span{
+            font-size: 12px;
+            border: none;
+            display: block;
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.book{
+    margin: 100px 3%;
+    width: 55%;
+
+    p{
+        display: inline-block;
+        margin: 3px 0 0 0;
+    }
+
+    .score-color1{
+        border: 3px dashed red;
+    }
+    .score-color2{
+        border: 3px dashed green;
+    }
+    .score-color3{
+        border: 3px dashed blue;
+    }
+
+    
+    
+    
+    .mdl-card__supporting-text{
+        padding: 10px 5px 0px 10px;
+    }
+    .demo-card-wide.mdl-card {
+        min-height: 140px !important;
+        min-width: 100% !important;
+        margin-bottom: 30px;
+      }
+      .demo-card-wide > .mdl-card__title {
+        color: #fff;
+        height: 50px;
+      }
+      .demo-card-wide > .mdl-card__menu {
+        color: #fff;
+      }
+      .mdl-card__actions.mdl-card--border{
+        word-break: break-all;
+        overflow: auto;
+        padding-top: 15px;
+
+        a{
+            font-size: 20px !important;
+            font-weight: inherit !important;
+            color: inherit !important;
+        }
+      }
+
+}
+
+.index-book{
+    margin: 100px 3%;
+    
+
+    p{
+        display: inline-block;
+        margin: 3px 0 0 0;
+    }
+
+    .score-color1{
+        border: 3px dashed red;
+    }
+    .score-color2{
+        border: 3px dashed green;
+    }
+    .score-color3{
+        border: 3px dashed blue;
+    }
+
+    
+    
+    
+    .mdl-card__supporting-text{
+        padding: 10px 5px 0px 10px;
+    }
+    .demo-card-wide.mdl-card {
+        min-height: 140px !important;
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: 30px;
+      }
+      .demo-card-wide > .mdl-card__title {
+        color: #fff;
+        height: 50px;
+      }
+      .demo-card-wide > .mdl-card__menu {
+        color: #fff;
+      }
+      .mdl-card__actions.mdl-card--border{
+        word-break: break-all;
+        overflow: auto;
+        padding-top: 15px;
+
+        a{
+            font-size: 20px !important;
+            font-weight: inherit !important;
+            color: inherit !important;
+        }
+      }
+
 }
 
 
@@ -440,6 +566,7 @@
     
         
     }
+   
     //メディアクエリ　ユーザー情報部分 
     .info{
         border: 5px solid;
@@ -497,31 +624,6 @@
         }
     }
 
-    .user-info{
-        display: inline-block;  
-        float: right;
-        width: 60%;
-        p{
-            background: linear-gradient(transparent 70%, #93FFAB 70%);
-            margin-bottom: 20px;
-        }    
-        span{
-            display: block;
-            border-bottom: 2px #000000;
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-
-        .img{
-            display: inline-block;
-            width: 20%;
-            height: 100px;
-            border-radius: 50%;
-            margin-right: 5px;
-            margin-top: 10px;
-            border: 3px solid;
-        }
-    }
     .user-edit{
             display: inline-block;  
             float: left;
