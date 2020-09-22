@@ -252,6 +252,90 @@
     }
 }
 
+.user-info{
+    margin: 0 auto;  
+    
+    .demo-card-square.mdl-card {
+        width: 40%;
+        height: 600px;
+        margin: 200px auto;
+    }
+    .demo-card-square > .mdl-card__title {
+        color: #fff;
+        background:   bottom right 15% no-repeat #46B6AC;
+        width: 100%;
+    
+        h1{
+            width: 100%;
+            display: block;
+            word-break: break-all;
+            overflow: auto;
+        }
+        
+        a{
+            display: inline-block;
+            font-size: 14px;
+            color: #fff !important;
+            margin: 0 auto;
+        }  
+    }
+    
+    .mdl-card__supporting-text {
+        width: 100%;
+        
+        a{
+            font-size: 14px;
+            color: #000 !important;
+            margin: 0 auto;
+        }  
+    }
+    
+    .mdl-card__actions{
+        height: 400px;
+        h5{
+            width: 100%;
+            display: block;
+            word-break: break-all;
+            overflow: auto;
+            margin: 5px ;
+        }
+        span{
+            font-size: 12px;
+            border: 1px dashed #46B6AC;
+            display: block;
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+        a{
+            font-size: 14px;
+            color: #000 !important;
+        }
+    }
+}
+
+.edit{
+    .demo-card-square.mdl-card {
+        height: 800px;
+    }
+    .mdl-card__actions{
+        height: 500px;
+        textarea,input,select{
+            display: block;
+            width: 100%;
+            padding: 3px;
+            margin: 3px;
+        }
+
+        span{
+            font-size: 12px;
+            border: none;
+            display: block;
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
 .book{
     margin: 100px 3%;
     width: 55%;
@@ -482,6 +566,7 @@
     
         
     }
+   
     //メディアクエリ　ユーザー情報部分 
     .info{
         border: 5px solid;
@@ -539,31 +624,6 @@
         }
     }
 
-    .user-info{
-        display: inline-block;  
-        float: right;
-        width: 60%;
-        p{
-            background: linear-gradient(transparent 70%, #93FFAB 70%);
-            margin-bottom: 20px;
-        }    
-        span{
-            display: block;
-            border-bottom: 2px #000000;
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-
-        .img{
-            display: inline-block;
-            width: 20%;
-            height: 100px;
-            border-radius: 50%;
-            margin-right: 5px;
-            margin-top: 10px;
-            border: 3px solid;
-        }
-    }
     .user-edit{
             display: inline-block;  
             float: left;

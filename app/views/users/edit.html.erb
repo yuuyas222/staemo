@@ -1,39 +1,47 @@
-<div class="info clearfix">
-<h1>ユーザー情報編集</h1>
+<div class="user-info edit">
 <%= form_for(@user) do |f| %>
-<% if @user.errors.any? %>
-    <div class="notice">
-            <p><%= @user.errors.count %>件エラーがあります。</p>
-            <% @user.errors.full_messages.each do |message| %>
-            <ul>
-                <li><%= message %></li>
-            </ul>
-            <% end %>
-    </div>
-<% end %>
-<div class="profile-img">
-    <% if @user.profile_image.present? %>
+  <% if @user.errors.any? %>
+      <div class="notice">
+              <p><%= @user.errors.count %>件エラーがあります。</p>
+              <% @user.errors.full_messages.each do |message| %>
+              <ul>
+                  <li><%= message %></li>
+              </ul>
+              <% end %>
+      </div>
+  <% end %>
+<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+  <section>
+  <% if @user.profile_image.present? %>
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %><br>
     <% else %>
       <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %><br>
     <% end %>
     <%= f.attachment_field :profile_image, placeholder: "プロフィール画像"%>
-</div>
-<div class="user-edit">
-    <p>ユーザー名</p>
+  </section>
+  <section>
+  </section>
+  </div>
+  <div class="mdl-card__supporting-text">
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <h5>ユーザー名</h5>
     <span><%= f.text_field :name %></span>
-    <p>紹介文</p>
+    <h5>紹介文</h5>
     <span><%= f.text_area :introduction %></span>
-    <p>お気に入りの球団</p>
+    <h5>お気に入りの球団</h5>
     <span><%= f.select :favorite_team, User.favorite_teams.keys,{} %></span>
-    <p>野球との出会いは？？</p>
+    <h5>野球との出会いは？？</h5>
     <span><%= f.text_field :textbox %></span>
-    <p>タグ</p>
+    <h5>タグ</h5>
     <span>
     <%= f.text_field :tag_list, value: @user.tag_list.join(',') %>  
     </span>
-    <%= f.submit "編集する", class: "btn btn-primary" %>
+    <%= f.submit "変更を確定する", class: "btn btn-primary" %>
+    <%= link_to "退会手続きをする", user_confirm_path(current_user) %>
+  </div>
+</div>
 <% end %>
-<%= link_to "退会手続きをする", user_confirm_path(current_user) %>
 </div>
-</div>
+

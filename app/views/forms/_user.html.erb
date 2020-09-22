@@ -37,9 +37,6 @@
   </div>
   <div class="mdl-card__actions mdl-card--border">
       <%= link_to "このユーザーについてもっとみる", user_path(@user) %>
-      <% if @user == current_user %>
-      <p><%= link_to "編集する", edit_user_path(@user) %></p>
-      <% end %>
   </div>
 </div>
 

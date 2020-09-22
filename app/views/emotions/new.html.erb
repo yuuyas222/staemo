@@ -1,4 +1,6 @@
-    <div class="book-area clearfix">
+<div class="user-info">
+<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__supporting-text">
     <%= form_with model: @emotion, local: true do |f| %>
     <% if @emotion.errors.any? %>
     <div class="notice">
@@ -13,12 +15,21 @@
     <p>投稿</p>
     <%= f.text_area :body %>
     <span id="text-length"></span>
+    <p>タグ</p>
+    <%= f.text_field :tag_list, value: @emotion.tag_list.join(',') %>
+    
+    
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
     <p>画像</p>
     <%= f.attachment_field :images_images, multiple: true %>
     <%= f.attachment_field :images_images, multiple: true %>
     <%= f.attachment_field :images_images, multiple: true %>
-    <p>タグ</p>
-    <%= f.text_field :tag_list, value: @emotion.tag_list.join(',') %>
+     
     <%= f.submit "投稿する", class: "btn" %>   
     <% end %>
+  </div>
+</div>
+</div>
+    <div class="book-area clearfix">
 </div>

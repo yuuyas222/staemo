@@ -47,19 +47,22 @@
       <%= current_user.name %>
       <% end %>
       </p>
-      <p class="mdl-navigation__link" href="">
+      <p class="mdl-navigation__link">
         <%= link_to "新規投稿", new_emotion_path, class: "media-new" %>
       </p>
-      <p class="mdl-navigation__link" href="">
+      <p class="mdl-navigation__link">
         <%= link_to "マイページにいく", user_top_path(current_user) %>
       </p>
-      <p class="mdl-navigation__link" href="">
+      <p class="mdl-navigation__link">
         <%= link_to "最近の投稿", tops_trend_path %>
       </p>
-      <p class="mdl-navigation__link" href="">
+      <p class="mdl-navigation__link">
         <%= link_to "友達を探す", user_search_path(current_user) %>
       </p>
-      <p class="mdl-navigation__link" href="">
+      <p class="mdl-navigation__link">
+        <%= link_to "設定変更", edit_user_path(current_user) %>
+      </p>
+      <p class="mdl-navigation__link">
         <%= link_to "ログアウトする", destroy_user_session_path, method: :delete %> 
       </p>
     </nav>
