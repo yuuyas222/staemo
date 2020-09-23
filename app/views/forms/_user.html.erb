@@ -1,22 +1,32 @@
-<div class="info clearfix">
-    <h1>ユーザー情報</h1>
-    <% if @user.profile_image.present? %>
+<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+  <%= link_to user_top_path(@user) do %>
+  <section>
+  <% if @user.profile_image.present? %>
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
-    <% else %>
+  <% else %>
       <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
-    <% end %>
-    <div class="user-info">
-        <p>ユーザー名　<%= @user.name %></p><br>
-        <%= link_to user_follower_path(@user) do %>
-          <p>フォロワー　<%=@user.followers.count %>人</p><br>
-        <% end %>
-        <%= link_to user_following_path(@user) do %>
-          <p>フォロー　<%=@user.followings.count %>人</p><br>
-        <% end %>
-        <%= link_to user_favorites_path(@user) do %>
-        <p>お気に入りの投稿　<%=@user.favorites.count %>件</p><br>
-        <% end %>
-    </div> 
+  <% end %>
+  </section>
+  <section>
+    <h1 class="mdl-card__title-text">
+    <%= @user.name %>
+    </h1>
+    </section>
+  <% end %>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <h3 class="mdl-card__title-text">
+      <%= link_to user_follower_path(@user) do %>
+      Follower数　<%=@user.followers.count %>　<br>
+      <% end %>
+      <%= link_to user_following_path(@user) do %>
+      Folloing数　<%=@user.followings.count %>　<br>
+      <% end %>
+      <%= link_to user_favorites_path(@user) do %>
+      Favorite数　<%=@user.favorites.count %><br>
+      <% end %>
+    </h3> 
   <% if current_user.id != @user.id %>
       <% if @user.followed_by?(current_user) %>
           <p><%= link_to "フォロー解除", user_frendships_path(@user.id), method: :delete %></p>
@@ -24,9 +34,9 @@
           <p><%= link_to "フォロー登録", user_frendships_path(@user.id), method: :post %></p></p>
       <% end %>    
   <% end %>
-  <p><%= link_to "このユーザーについてもっとみる", user_path(@user) %></p><br>
-  <% if @user == current_user %>
-      <p><%= link_to "編集する", edit_user_path(@user) %></p>
-  <% end %>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+      <%= link_to "このユーザーについてもっとみる", user_path(@user) %>
+  </div>
 </div>
 

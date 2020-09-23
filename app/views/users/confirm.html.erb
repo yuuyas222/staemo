@@ -1,27 +1,55 @@
-<h3>こんなユーザーもいます。</h3>
-<div class="if-user">
+<div class="confirm">
+  <%= link_to "本当に退会する", user_path(current_user), class: "btn-primary", method: :delete %>
+</div>
+<h5>こんなユーザーがいます</h5>
+<div class="user-search">
 <% @users.each do |user| %>
-  <div class= "user-emotion clearfix">
-  <%= link_to user_top_path(user) do %>
-    <section class="img-area">
+  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title mdl-card--expand">
+    <%= link_to user_top_path(user) do %>
+    <section>
     <% if user.profile_image.present? %>
-      <p><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
+        <%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
     <% else %>
-      <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
+        <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
     <% end %>
     </section>
-  <% end %>
-    <div class="right-content">  
     <section>
-      <p>ユーザー名　<span class="strong"><%= user.name %></span></p>
-      <p>フレンド登録数　<%=user.followers.count %>人</p><br>
-      <p>紹介文</p><br>
-        <span><%= user.introduction %><br></span>
-      <p>お気に入りの球団</p><br>
-        <span><%= user.favorite_team %></span>
-    </section> 
+      <h1 class="mdl-card__title-text">
+      <%= user.name %>
+      </h1>
+      </section>
+    <% end %>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <h3 class="mdl-card__title-text">
+        <%= link_to user_follower_path(user) do %>
+        Follower数　<%=user.followers.count %>　<br>
+        <% end %>
+        <%= link_to user_following_path(user) do %>
+        Folloing数　<%=user.followings.count %>　<br>
+        <% end %>
+        <%= link_to user_favorites_path(user) do %>
+        Favorite数　<%=user.favorites.count %><br>
+        <% end %>
+      </h3> 
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <h5>紹介文</h5>
+          <span><%= user.introduction %><br></span>
+        <h5>お気に入りの球団</h5>
+          <span><%= user.favorite_team %></span>
+        <% if current_user.id != user.id %>
+          <% if user.followed_by?(current_user) %>
+            <p><%= link_to "フォロー解除", user_frendships_path(user), method: :delete %></p>
+          <% else %>
+            <p><%= link_to "フォロー登録", user_frendships_path(user), method: :post %></p></p>
+          <% end %>    
+        <% end %>  
     </div>
   </div>
 <% end %>
-<%= link_to "退会する", user_path(current_user), class: "btn", method: :delete %>
 </div>
+
+
+

@@ -59,6 +59,9 @@
                 confirm.classList.add("hidden");
             });
         }
+
+        // setTimeout(document.getElementById("spin").remove(), 5000);
+      
     
     });
 

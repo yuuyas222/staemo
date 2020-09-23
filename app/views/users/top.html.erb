@@ -3,7 +3,7 @@
   <div id="mask">
   </div>
       <div id="introduction-confirm">
-        <h4>まずは自分のことを知ってもらおう！</h4>
+        <h5>まずは自分のことを知ってもらおう！</h5>
         <% if @user.profile_image.present? %>
           <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
         <% else %>
@@ -14,45 +14,34 @@
       </div>
   <% end %>
 <% end %>
-<%= render "forms/user" %>
-<div class="book">
-<% @emotions.each do |emotion| %>
-<% if emotion&.score > 0.3 %>
- <div class= "user-emotion score-color1 clearfix">
-<% elsif emotion&.score > -0.6 %>
- <div class= "user-emotion score-color2 clearfix">
-<% else %> 
- <div class= "user-emotion score-color3 clearfix">
-<% end %>
-    <%= link_to user_top_path(emotion.user) do %>
-      <section class="img-area">
-      <% if emotion.user.profile_image.present? %>
-        <p><%= attachment_image_tag emotion.user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
-      <% else %>
-        <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
-      <% end %>
-      </section>
+<div class="flex">
+  <%= render "forms/user" %>
+  <div class="book">
+  <% @emotions.each do |emotion| %>
+    <% if emotion&.score > 0.3 %>
+    <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color1">
+    <% elsif emotion&.score > -0.6 %>
+    <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color2">
+    <% else %> 
+    <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color3">
     <% end %>
-    <div class="right-content">  
+    <div class="mdl-card__supporting-text">
       <section>
-        <p>ユーザー名　<span class="strong"><%= emotion.user.name %></span></p>
-        <p><%= time_ago_in_words(emotion.created_at) %>前</p><br>
-        <p id="favorite_<%= emotion.id %>">
-        <%= render "forms/favorite", emotion: emotion %>
-        </p> 
-          <p>コメント数　<%= emotion.comments.count %> 件</p>
-          <p>投稿画像　<%= emotion.images.count %> 件</p>
-      </section>
-      <div class="body-layouts">  
-        <p>
-      <%= link_to emotion_path(emotion) do %>
-        <%= emotion.body %>
-      <% end %>
-        </p>
-      </div>  
+          <%= time_ago_in_words(emotion.created_at) %>前
+            　コメント数　<%= emotion.comments.count %> 件
+            　投稿画像　<%= emotion.images.count %> 件<br>
+          <p id="favorite_<%= emotion.id %>">
+          <%= render "forms/favorite", emotion: emotion %>
+          </p> 
+        </section>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <%= link_to emotion_path(emotion) do %>
+          <%= emotion.body %>
+        <% end %>
     </div>
   </div>
-<% end %>
-<%= paginate @emotions %>
-<p><%= link_to "全ての投稿をみる", user_emotion_index_path(@user) %>
+  <% end %>
+  <%= paginate @emotions %>
+  </div>
 </div>
