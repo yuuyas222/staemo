@@ -1,28 +1,47 @@
-<h1>フォロワー一覧</h1>
-
-<div class="if-user">
-<% @frends.each do |frend| %>
-  <div class= "user-emotion clearfix">
-  <%= link_to user_top_path(frend) do %>
-    <section class="img-area">
-    <% if frend.profile_image.present? %>
-      <p><%= attachment_image_tag frend, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
-    <% else %>
-      <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
-    <% end %>
+<div class="index">
+<h5>follower一覧</h5>
+<% @frends.each do |user| %>
+ <div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+  <%= link_to user_top_path(user) do %>
+  <section>
+  <% if user.profile_image.present? %>
+      <%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
+  <% else %>
+      <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
+  <% end %>
+  </section>
+  <section>
+    <h1 class="mdl-card__title-text">
+    <%= user.name %>
+    </h1>
     </section>
   <% end %>
-    <div class="right-content">  
-    <section>
-      <p>ユーザー名　<span class="strong"><%= frend.name %></span></p>
-      <p>フレンド登録数　<%=frend.followers.count %>人</p><br>
-      <p>紹介文</p><br>
-        <span><%= frend.introduction %><br></span>
-      <p>お気に入りの球団</p><br>
-        <span><%= frend.favorite_team %></span>
-    </section> 
-    </div>
   </div>
+  <div class="mdl-card__supporting-text">
+    <h3 class="mdl-card__title-text">
+      <%= link_to user_follower_path(user) do %>
+      Follower数　<%=user.followers.count %>　<br>
+      <% end %>
+      <%= link_to user_following_path(user) do %>
+      Folloing数　<%=user.followings.count %>　<br>
+      <% end %>
+      <%= link_to user_favorites_path(user) do %>
+      Favorite数　<%=user.favorites.count %><br>
+      <% end %>
+    </h3> 
+  <% if current_user.id != user.id %>
+      <% if user.followed_by?(current_user) %>
+          <p><%= link_to "フォロー解除", user_frendships_path(user.id), method: :delete %></p>
+      <% else %>
+          <p><%= link_to "フォロー登録", user_frendships_path(user.id), method: :post %></p></p>
+      <% end %>    
+  <% end %>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+      <%= link_to "このユーザーについてもっとみる", user_path(user) %>
+  </div>
+</div>
 <% end %>
 </div>
 
