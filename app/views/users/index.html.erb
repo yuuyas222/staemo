@@ -1,24 +1,50 @@
-<% @users.each do |user| %>
-  <div class= "user-emotion clearfix">
-  <%= link_to user_top_path(user) do %>
-    <section class="img-area">
-    <% if user.profile_image.present? %>
-      <p><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %></p>
-    <% else %>
-      <p><%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %></p>
-    <% end %>
+<% @users.each do |data| %>
+<div class="user-search">
+<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+  <%= link_to user_top_path(data) do %>
+  <section>
+  <% if data.profile_image.present? %>
+      <%= attachment_image_tag data, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
+  <% else %>
+      <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %>
+  <% end %>
+  </section>
+  <section>
+    <h1 class="mdl-card__title-text">
+    <%= data.name %>
+    </h1>
     </section>
   <% end %>
-    <div class="right-content">  
-    <section>
-      <p>ユーザー名　<span class="strong"><%= user.name %></span></p>
-      <p>フレンド登録数　<%=user.followers.count %>人</p><br>
-      <p>紹介文</p><br>
-        <span><%= user.introduction %><br></span>
-      <p>お気に入りの球団</p><br>
-        <span><%= user.favorite_team %></span>
-    </section> 
-    </div>
   </div>
+  <div class="mdl-card__supporting-text">
+    <h3 class="mdl-card__title-text">
+      <%= link_to user_follower_path(data) do %>
+      Follower数　<%=data.followers.count %>　<br>
+      <% end %>
+      <%= link_to user_following_path(data) do %>
+      Folloing数　<%=data.followings.count %>　<br>
+      <% end %>
+      <%= link_to user_favorites_path(data) do %>
+      Favorite数　<%=data.favorites.count %><br>
+      <% end %>
+    </h3> 
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+      <h5>紹介文</h5>
+        <span><%= data.introduction %><br></span>
+      <h5>お気に入りの球団</h5>
+        <span><%= data.favorite_team %></span>
+      <% if current_user.id != data.id %>
+        <% if data.followed_by?(current_user) %>
+          <p><%= link_to "フォロー解除", user_frendships_path(data), method: :delete %></p>
+        <% else %>
+          <p><%= link_to "フォロー登録", user_frendships_path(data), method: :post %></p></p>
+        <% end %>    
+      <% end %>  
+  </div>
+</div>
+</div>
 <% end %>
+
 

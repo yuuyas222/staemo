@@ -1,7 +1,4 @@
-<div class="user-info">
-<div class="demo-card-square mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__supporting-text">
-    <%= form_with model: @emotion, local: true do |f| %>
+<%= form_with model: @emotion, local: true do |f| %>
     <% if @emotion.errors.any? %>
     <div class="notice">
             <p><%= @emotion.errors.count %>件エラーがあります。</p>
@@ -12,10 +9,13 @@
             <% end %>
     </div>
     <% end %>
+<div class="user-info new">
+<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__supporting-text">
     <p>投稿</p>
     <%= f.text_area :body %>
     <span id="text-length"></span>
-    <p>タグ</p>
+    タグ
     <%= f.text_field :tag_list, value: @emotion.tag_list.join(',') %>
     
     
@@ -26,10 +26,9 @@
     <%= f.attachment_field :images_images, multiple: true %>
     <%= f.attachment_field :images_images, multiple: true %>
      
-    <%= f.submit "投稿する", class: "btn" %>   
+    <%= f.submit "投稿する", class: "btn btn-primary" %>   
     <% end %>
   </div>
 </div>
 </div>
-    <div class="book-area clearfix">
 </div>

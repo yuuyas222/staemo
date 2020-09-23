@@ -3,7 +3,7 @@
   <div id="mask">
   </div>
       <div id="introduction-confirm">
-        <h4>まずは自分のことを知ってもらおう！</h4>
+        <h5>まずは自分のことを知ってもらおう！</h5>
         <% if @user.profile_image.present? %>
           <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %>
         <% else %>
