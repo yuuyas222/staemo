@@ -1,0 +1,29 @@
+<%= form_with model: @gourmet, local: true do |f| %>
+    <% if @gourmet.errors.any? %>
+    <div class="notice">
+            <p><%= @gourmet.errors.count %>件エラーがあります。</p>
+            <% @gourmet.errors.full_messages.each do |message| %>
+            <ul>
+                <li><%= message %></li>
+            </ul>
+            <% end %>
+    </div>
+    <% end %>
+<div class="user-info new">
+<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__supporting-text">
+    <p>投稿</p>
+    <%= f.text_area :body %>
+    <span id="text-length"></span>
+    タグ
+    <%= f.text_field :tag_list, value: @gourmet.tag_list.join(',') %>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <p>画像</p>
+     
+    <%= f.submit "投稿する", class: "btn btn-primary" %>   
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
