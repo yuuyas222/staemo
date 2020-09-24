@@ -10,10 +10,18 @@
               <% end %>
       </div>
   <% end %>
+  <section>
+    <% if @user.header_image.present? %>
+      <%= attachment_image_tag @user, :header_image, format: 'jpeg', size: "100x100", class: "header-img" %><br>
+    <% else %>
+      <%= image_tag "top1.jpg", format: 'jpeg', size: "100x100", class: "header-img" %><br>
+    <% end %>
+    <%= f.attachment_field :header_image, placeholder: "ヘッダー画像"%>
+  </section>
 <div class="demo-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
   <section>
-  <% if @user.profile_image.present? %>
+    <% if @user.profile_image.present? %>
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", class: "img" %><br>
     <% else %>
       <%= image_tag "no_image.jpg", format: 'jpeg', size: "100x100", class: "img" %><br>

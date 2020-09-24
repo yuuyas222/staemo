@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def top
     @user = User.find(params[:user_id])
     @emotions = @user.emotions.page(params[:page]).order(created_at: :desc)
+    @gourmets = @user.gourmets.page(params[:page]).order(created_at: :desc)
   end
 
   def index

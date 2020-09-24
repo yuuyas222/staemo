@@ -6,5 +6,10 @@ class TopsController < ApplicationController
     else
       @emotions = Emotion.page(params[:page]).order(created_at: :desc)
     end
+    if params[:tag_name]
+      @gourmets = Gourmet.tagged_with("#{params[:tag_name]}")
+    else
+      @gourmets = Gourmet.page(params[:page]).order(created_at: :desc)
+    end
   end
 end

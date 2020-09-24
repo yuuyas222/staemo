@@ -454,6 +454,24 @@ span{
 
 .index-book{
     margin: 100px 3%;
+    .nav{
+        background-color:  rgb(63, 81, 181); 
+        a.active{
+            background-color: rgba(255,255,255,0.6) !important;
+        }
+    }
+    
+    
+    .nav > li > a:hover, .nav > li > a:focus, {
+        background-color: rgba(255,255,255,0.6) !important;
+    }
+    
+    .tab-content{
+        border: 1px solid #000;
+        border-top: none;
+        padding: 5px;
+        margin: 0 ;
+    }
     
 
     p{
@@ -468,7 +486,7 @@ span{
         min-height: 140px !important;
         width: 100%;
         max-width: 800px;
-        margin-bottom: 30px;
+        margin: 10px auto;
       }
       .demo-card-wide > .mdl-card__title {
         color: #fff;

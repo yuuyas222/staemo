@@ -18,12 +18,15 @@ Rails.application.routes.draw do
     get "follower" => "frendships#follower", as: "follower"
     get "following" => "frendships#following", as: "following"
     get "user_index" => "emotions#user_index", as: "emotion_index"
+    get "user_gourmet_index" => "gourmets#user_gourmet_index", as: "gourmets_index"
   end
 
   resources :emotions, only: [:show, :create, :new] do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:index, :create, :destroy]
   end
+
+  resources :gourmets, only: [:show, :create, :new] 
 
   get "search" => "search#search", as: "search"
   get "user_search" => "search#user_search", as: "user_search"
