@@ -17,31 +17,42 @@
 <div class="flex">
   <%= render "forms/user" %>
   <div class="book">
-  <% @emotions.each do |emotion| %>
-    <% if emotion&.score > 0.3 %>
-    <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color1">
-    <% elsif emotion&.score > -0.6 %>
-    <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color2">
-    <% else %> 
-    <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color3">
-    <% end %>
-    <div class="mdl-card__supporting-text">
-      <section>
-          <%= time_ago_in_words(emotion.created_at) %>前
-            　コメント数　<%= emotion.comments.count %> 件
-            　投稿画像　<%= emotion.images.count %> 件<br>
-          <p id="favorite_<%= emotion.id %>">
-          <%= render "forms/favorite", emotion: emotion %>
-          </p> 
-        </section>
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <%= link_to emotion_path(emotion) do %>
-          <%= emotion.body %>
+    <ul class="nav nav-tabs">
+	    <li class="active"><a href="#sampleContentA" data-toggle="tab">Baseball</a></li>
+	    <li><a href="#sampleContentB" data-toggle="tab">Gourmet</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="sampleContentA">
+        <% @emotions.each do |emotion| %>
+          <% if emotion&.score > 0.3 %>
+          <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color1">
+          <% elsif emotion&.score > -0.6 %>
+          <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color2">
+          <% else %> 
+          <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color3">
+          <% end %>
+            <div class="mdl-card__supporting-text">
+              <section>
+                  <%= time_ago_in_words(emotion.created_at) %>前
+                    　コメント数　<%= emotion.comments.count %> 件
+                    　投稿画像　<%= emotion.images.count %> 件<br>
+                  <p id="favorite_<%= emotion.id %>">
+                  <%= render "forms/favorite", emotion: emotion %>
+                  </p> 
+                </section>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <%= link_to emotion_path(emotion) do %>
+                  <%= emotion.body %>
+                <% end %>
+            </div>
+          </div>
         <% end %>
+        <%= paginate @emotions %>
+      </div>
+      <div class="tab-pane" id="sampleContentB">
+		    <p>グルメ</p>
+	    </div>
     </div>
-  </div>
-  <% end %>
-  <%= paginate @emotions %>
   </div>
 </div>

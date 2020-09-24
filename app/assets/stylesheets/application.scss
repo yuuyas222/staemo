@@ -131,13 +131,13 @@ button{
 // 投稿スコアによっての色わけ　赤　0.4~1.0　緑0.3~-0.5 青0.6~1.0 　
 
 .score-color1{
-    border: 3px dashed red;
+    border: 1px  red;
 }
 .score-color2{
-    border: 3px dashed green;
+    border: 1px  green;
 }
 .score-color3{
-    border: 3px dashed blue;
+    border: 1px  blue;
 }
 
 // メディアクエリ時　rightbar消える為　全体幅変更
