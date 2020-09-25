@@ -3,8 +3,14 @@ class GourmetsController < ApplicationController
         
     end
 
+    def show
+        @gourmet = Gourmet.find(params[:id])
+        @user = User.find_by(id: @gourmet.user_id)
+    end
+
     def new
         @gourmet = Gourmet.new
+        @gourmet.gourmet_images.new
     end
 
     def create
@@ -21,6 +27,6 @@ class GourmetsController < ApplicationController
 
     private
     def gourmet_params
-        params.require(:gourmet).permit(:body, :tag_list)
+        params.require(:gourmet).permit(:body, :tag_list,gourmet_images_images: [])
     end
 end

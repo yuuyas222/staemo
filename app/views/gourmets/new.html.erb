@@ -20,7 +20,9 @@
   </div>
   <div class="mdl-card__actions mdl-card--border">
     <p>画像</p>
-     
+    <%= f.attachment_field :gourmet_images_images, multiple: true %>
+    <%= f.attachment_field :gourmet_images_images, multiple: true %>
+    <%= f.attachment_field :gourmet_images_images, multiple: true %>
     <%= f.submit "投稿する", class: "btn btn-primary" %>   
     <% end %>
   </div>
