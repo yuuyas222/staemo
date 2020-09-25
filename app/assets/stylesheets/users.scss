@@ -345,27 +345,40 @@ span{
     margin-bottom: 10px;
 }
 
+
+.header-img{
+    height: 300px;
+    width: 100%;
+    opacity: 0.8;
+}
+
+
 .book{
     margin: 100px 3%;
     width: 55%;
-
+    
+    .nav{
+        background-color:  rgb(63, 81, 181); 
+        a.active{
+            background-color: rgba(255,255,255,0.6) !important;
+        }
+    }
+    
+    
+    .nav > li > a:hover, .nav > li > a:focus, {
+        background-color: rgba(255,255,255,0.6) !important;
+    }
+    
+    .tab-content{
+        border: 1px solid #000;
+        border-top: none;
+        padding: 5px;
+        margin-top: 0;
+    }
     p{
         display: inline-block;
         margin: 3px 0 0 0;
     }
-
-    .score-color1{
-        border: 3px dashed red;
-    }
-    .score-color2{
-        border: 3px dashed green;
-    }
-    .score-color3{
-        border: 3px dashed blue;
-    }
-
-    
-    
     
     .mdl-card__supporting-text{
         padding: 10px 5px 0px 10px;
@@ -404,15 +417,6 @@ span{
         margin: 3px 0 0 0;
     }
 
-    .score-color1{
-        border: 3px dashed red;
-    }
-    .score-color2{
-        border: 3px dashed green;
-    }
-    .score-color3{
-        border: 3px dashed blue;
-    }
 
     
     
@@ -446,27 +450,34 @@ span{
 
 }
 
+
+
 .index-book{
     margin: 100px 3%;
+    .nav{
+        background-color:  rgb(63, 81, 181); 
+        a.active{
+            background-color: rgba(255,255,255,0.6) !important;
+        }
+    }
+    
+    
+    .nav > li > a:hover, .nav > li > a:focus, {
+        background-color: rgba(255,255,255,0.6) !important;
+    }
+    
+    .tab-content{
+        border: 1px solid #000;
+        border-top: none;
+        padding: 5px;
+        margin: 0 ;
+    }
     
 
     p{
         display: inline-block;
         margin: 3px 0 0 0;
     }
-
-    .score-color1{
-        border: 3px dashed red;
-    }
-    .score-color2{
-        border: 3px dashed green;
-    }
-    .score-color3{
-        border: 3px dashed blue;
-    }
-
-    
-    
     
     .mdl-card__supporting-text{
         padding: 10px 5px 0px 10px;
@@ -475,7 +486,7 @@ span{
         min-height: 140px !important;
         width: 100%;
         max-width: 800px;
-        margin-bottom: 30px;
+        margin: 10px auto;
       }
       .demo-card-wide > .mdl-card__title {
         color: #fff;

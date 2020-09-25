@@ -22,14 +22,11 @@
 body{
     background-color: #f3f3f3;
     margin: 0 auto;
-    // background-image: image-url("stadium.jpg");
-    // background-position: 50% 75%;
-    // background-size: cover;
-    // background-attachment: fixed;
-    // background-color: rgba(255,255,255,0.3);
     color: #000000;
-    // background-blend-mode:lighten;
-    // font-family: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+}
+
+h5{
+    padding-left: 10px !important;
 }
 
 a{
@@ -45,6 +42,21 @@ h1{
     font-size: 20px;
 }
 
+.pagination{
+    text-align: center;
+    width: 100%;
+    
+    span{
+        color: #000000 !important;
+        display: inline;
+        font-size: 20px;
+    }
+
+    a{
+        color: rgba(000,000,000,0.4) !important;
+    }
+}
+
 .clearfix::after{
     content: "";
     display: block;
@@ -57,7 +69,7 @@ h1{
 
 
 main{
-    margin: 80px auto;
+    margin: 56px auto;
 }
 
 .mdl-layout__drawer{
@@ -72,6 +84,10 @@ main{
     a{
         color: #000000 !important;
     }
+}
+
+input{
+    color: #000000 !important;
 }
 
 
@@ -95,7 +111,7 @@ button{
     text-align: center;
     position: relative;
     input{
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(255, 255, 255, 0.4);
         width: 60%;
         height: 30px;
         display: inline-block;
@@ -131,13 +147,13 @@ button{
 // 投稿スコアによっての色わけ　赤　0.4~1.0　緑0.3~-0.5 青0.6~1.0 　
 
 .score-color1{
-    border: 3px dashed red;
+    border: 1px solid red;
 }
 .score-color2{
-    border: 3px dashed green;
+    border: 1px solid green;
 }
 .score-color3{
-    border: 3px dashed blue;
+    border: 1px solid blue;
 }
 
 // メディアクエリ時　rightbar消える為　全体幅変更
