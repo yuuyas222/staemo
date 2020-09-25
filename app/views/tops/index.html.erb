@@ -57,6 +57,7 @@
           <% end %>
               <section>
                   <%= time_ago_in_words(gourmet.created_at) %>前
+                  投稿画像　<%= gourmet.gourmet_images.count %> 件<br>
                 </section>
             </div>
             <div class="mdl-card__actions mdl-card--border">

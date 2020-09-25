@@ -1,0 +1,36 @@
+<% if @gourmet.errors.any? %>
+    <div class="notice">
+            <p><%= @gourmet.errors.count %>件エラーがあります。</p>
+            <% @gourmet.errors.full_messages.each do |message| %>
+            <ul>
+                <li><%= message %></li>
+            </ul>
+            <% end %>
+    </div>
+    <% end %>
+<div class="show">
+<h5>グルメ投稿詳細</h5>
+    <div class= "demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__supporting-text">
+        <section>
+            <h6>投稿者：<%= @gourmet.user.name %></h6>
+            <%= time_ago_in_words(@gourmet.created_at) %>前 
+            投稿画像　<%= @gourmet.gourmet_images.count %> 件<br>
+          </section>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+          <%= link_to gourmet_path(@gourmet) do %>
+            <%= @gourmet.body %>
+          <% end %>
+      </div>
+    </div>
+  <%# 投稿画像表記 %>
+<% if @gourmet_images_images.nil? %>
+  <div class="emotion-img">
+  <% @gourmet.gourmet_images.each do |image| %>
+    <div class="img-show">
+    <%= attachment_image_tag image, :image, format: 'jpeg', size: "450x300" %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
