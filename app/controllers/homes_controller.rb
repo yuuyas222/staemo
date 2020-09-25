@@ -6,7 +6,7 @@ class HomesController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(name: "ゲスト１", email: "guest@example.com") do |user|
+    user = User.find_or_create_by!(name: "ゲストユーザー", email: "guest02@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
