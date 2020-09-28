@@ -5,8 +5,9 @@
         
 // about箇所
 
-
-
+.mdl-layout__header-row{
+    padding: 0 20px !important;
+}
     .container{
         text-align: center;
     }
@@ -147,8 +148,12 @@
            text-align: center;
        }
 }
-    
+}
 
+@media screen and (min-width:1024px){
+    .mdl-layout__header .mdl-layout__drawer-button .mdl-layout__drawer{
+        display: flex !important; 
+    }
 }
 
 @media screen and (max-width:425px){

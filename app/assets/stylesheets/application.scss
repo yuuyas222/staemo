@@ -104,6 +104,12 @@ button{
     }
 }
 
+.logo{
+    border-radius: 60%;
+    margin-left: 40%;
+    margin-top: 7px;
+}
+
 
 // 検索フォームレイアウト
 .search{
@@ -111,7 +117,7 @@ button{
     text-align: center;
     position: relative;
     input{
-        background-color: rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255,1);
         width: 60%;
         height: 30px;
         display: inline-block;
@@ -120,7 +126,8 @@ button{
     button{
         display: inline-block;
         border: none;
-        color: #000000 !important;
+        color: #ffffff !important;
+        background-color: rgb(63, 81, 181);
     }
     
 }
