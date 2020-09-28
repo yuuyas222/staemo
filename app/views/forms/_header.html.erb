@@ -4,11 +4,11 @@
     <span class="mdl-layout-title">
   <% unless user_signed_in? %>
     <%= link_to root_path do %>
-      スタエモ
+      <div><%= image_tag "logo.jpg", format: 'jpeg', class: "logo" %></div>
     <% end %>
   <% else %>
     <%= link_to tops_trend_path, data: {"turbolinks"=>false} do %>
-      スタエモ
+      <div><%= image_tag "logo.jpg", format: 'jpeg', class: "logo" %></a></div>
     <% end %>
   <% end %>
     </span>
@@ -17,14 +17,9 @@
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
       <% if user_signed_in? %>
-        <%= form_tag(search_path, method: :get) do %>
-          <%= text_field_tag 'search[content]', "", placeholder: '気になる投稿を探そう！'%>
-        <%= button_tag type: 'submit' do %>
-        <i class="glyphicon glyphicon-search"></i>
-        <% end %>
-        <% end %>
-      <a class="mdl-navigation__link"><%= link_to "野球投稿", new_emotion_path, class: "top-btn" %></a>
-      <a class="mdl-navigation__link"><%= link_to "グルメ投稿", new_gourmet_path, class: "top-btn" %></a>
+      <a class="mdl-navigation__link"><%= link_to "最近の投稿をみる", tops_trend_path %></a>
+      <a class="mdl-navigation__link"><%= link_to "野球投稿をする", new_emotion_path, class: "top-btn" %></a>
+      <a class="mdl-navigation__link"><%= link_to "グルメ投稿をする", new_gourmet_path, class: "top-btn" %></a>
       <% else %>  
       <a class="mdl-navigation__link"><%= link_to "ログインする", new_user_session_path, class: "home-top-btn" %></a>
       <a class="mdl-navigation__link"><%= link_to "新規登録する", new_user_registration_path, class: "home-top-btn" %></a>
@@ -49,16 +44,16 @@
       <% end %>
       </p>
       <p class="mdl-navigation__link">
-        <%= link_to "野球投稿", new_emotion_path, class: "media-new" %>
-      </p>
-      <p class="mdl-navigation__link">
-       <%= link_to "グルメ投稿", new_gourmet_path %></a>
-      </p>
-      <p class="mdl-navigation__link">
         <%= link_to "マイページにいく", user_top_path(current_user) %>
       </p>
       <p class="mdl-navigation__link">
-        <%= link_to "最近の投稿", tops_trend_path %>
+        <%= link_to "最近の投稿みる", tops_trend_path %>
+      </p>
+      <p class="mdl-navigation__link">
+        <%= link_to "野球投稿をする", new_emotion_path, class: "media-new" %>
+      </p>
+      <p class="mdl-navigation__link">
+       <%= link_to "グルメ投稿をする", new_gourmet_path %></a>
       </p>
       <p class="mdl-navigation__link">
         <%= link_to "友達を探す", user_search_path(current_user) %>

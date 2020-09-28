@@ -24,65 +24,65 @@
 <div class="flex">
   <%= render "forms/user" %>
   <div class="book">
-    <ul class="nav nav-tabs">
-	    <li><a href="#sampleContentA" data-toggle="tab">Baseball(<%= @emotions.count %>)</a></li>
-	    <li><a href="#sampleContentB" data-toggle="tab">Gourmet(<%= @gourmets.count %>)</a></li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="sampleContentA">
-      <% if @emotions.present? %>
-        <% @emotions.each do |emotion| %>
-          <% if emotion&.score > 0.3 %>
-          <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color1">
-          <% elsif emotion&.score > -0.6 %>
-          <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color2">
-          <% else %> 
-          <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color3">
-          <% end %>
-            <div class="mdl-card__supporting-text">
-              <section>
-                  <%= time_ago_in_words(emotion.created_at) %>前
-                    　コメント数　<%= emotion.comments.count %> 件
-                    　投稿画像　<%= emotion.images.count %> 件<br>
-                  <p id="favorite_<%= emotion.id %>">
-                  <%= render "forms/favorite", emotion: emotion %>
-                  </p> 
-                </section>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <%= link_to emotion_path(emotion) do %>
-                  <%= emotion.body %>
-                <% end %>
-            </div>
-          </div>
-        <% end %>
-        <%= paginate @emotions %>
-      <% else %>
-      <p>投稿がまだありません</p>
-      <% end %>      
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+      <div class="mdl-tabs__tab-bar">
+          <a href="#starks-panel" class="mdl-tabs__tab is-active">Baseball(<%= @emotions.count %>)</a>
+          <a href="#lannisters-panel" class="mdl-tabs__tab">Gourmet(<%= @gourmets.count %>)</a>
       </div>
-      <div class="tab-pane" id="sampleContentB">
-		    <% if @gourmets.present? %>
-        <% @gourmets.each do |gourmet| %>
-          <div class= "demo-card-wide mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__supporting-text">
-              <section>
-                  <%= time_ago_in_words(gourmet.created_at) %>前
-                  投稿画像　<%= gourmet.gourmet_images.count %> 件<br>
-                </section>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <%= link_to gourmet_path(gourmet) do %>
-                  <%= gourmet.body %>
-                <% end %>
-            </div>
-          </div>
-        <% end %>
-        <%= paginate @gourmets %>
-        <% else %>
-        <p>投稿がまだありません</p>
-        <% end %> 
-	    </div>
+      <div class="mdl-tabs__panel is-active" id="starks-panel">
+          <% if @emotions.present? %>
+            <% @emotions.each do |emotion| %>
+              <% if emotion&.score > 0.3 %>
+              <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color1">
+              <% elsif emotion&.score > -0.6 %>
+              <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color2">
+              <% else %> 
+              <div class= "demo-card-wide mdl-card mdl-shadow--2dp score-color3">
+              <% end %>
+                <div class="mdl-card__supporting-text">
+                  <section>
+                      <%= time_ago_in_words(emotion.created_at) %>前
+                        　コメント数　<%= emotion.comments.count %> 件
+                        　投稿画像　<%= emotion.images.count %> 件<br>
+                      <p id="favorite_<%= emotion.id %>">
+                      <%= render "forms/favorite", emotion: emotion %>
+                      </p> 
+                    </section>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <%= link_to emotion_path(emotion) do %>
+                      <%= emotion.body %>
+                    <% end %>
+                </div>
+              </div>
+            <% end %>
+            <%= paginate @emotions %>
+          <% else %>
+          <p>投稿がまだありません</p>
+          <% end %>      
+      </div>
+      <div class="mdl-tabs__panel" id="lannisters-panel">
+            <% if @gourmets.present? %>
+            <% @gourmets.each do |gourmet| %>
+              <div class= "demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__supporting-text">
+                  <section>
+                      <%= time_ago_in_words(gourmet.created_at) %>前
+                      投稿画像　<%= gourmet.gourmet_images.count %> 件<br>
+                    </section>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <%= link_to gourmet_path(gourmet) do %>
+                      <%= gourmet.body %>
+                    <% end %>
+                </div>
+              </div>
+            <% end %>
+            <%= paginate @gourmets %>
+            <% else %>
+            <p>投稿がまだありません</p>
+            <% end %> 
+      </div>
     </div>
   </div>
 </div>

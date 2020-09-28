@@ -77,8 +77,8 @@
 
 .demo-card-square.mdl-card {
     width: 30%;
-    height: 400px;
-    margin: 200px 5%;
+    height: 300px;
+    margin: 100px 5%;
 }
 
 .index{
@@ -354,27 +354,18 @@ span{
 
 
 .book{
-    margin: 100px 3%;
+    margin: 50px 3%;
     width: 55%;
-    
-    .nav{
-        background-color:  rgb(63, 81, 181); 
-        a.active{
-            background-color: rgba(255,255,255,0.6) !important;
-        }
+    background-color: #fff;
+    padding: 10px;
+
+    .mdl-tabs__tab{
+        color: #000 !important;
+    }
+    .mdl-tabs__tab-bar{
+        margin-bottom: 10px;
     }
     
-    
-    .nav > li > a:hover, .nav > li > a:focus, {
-        background-color: rgba(255,255,255,0.6) !important;
-    }
-    
-    .tab-content{
-        border: 1px solid #000;
-        border-top: none;
-        padding: 5px;
-        margin-top: 0;
-    }
     p{
         display: inline-block;
         margin: 3px 0 0 0;
@@ -454,26 +445,16 @@ span{
 
 .index-book{
     margin: 100px 3%;
-    .nav{
-        background-color:  rgb(63, 81, 181); 
-        a.active{
-            background-color: rgba(255,255,255,0.6) !important;
-        }
-    }
-    
-    
-    .nav > li > a:hover, .nav > li > a:focus, {
-        background-color: rgba(255,255,255,0.6) !important;
-    }
-    
-    .tab-content{
-        border: 1px solid #000;
-        border-top: none;
-        padding: 5px;
-        margin: 0 ;
-    }
-    
+    background-color: #fff;
+    padding: 10px;
 
+    .mdl-tabs__tab{
+        color: #000 !important;
+    }
+    .mdl-tabs__tab-bar{
+        margin-bottom: 10px;
+    }
+    
     p{
         display: inline-block;
         margin: 3px 0 0 0;
