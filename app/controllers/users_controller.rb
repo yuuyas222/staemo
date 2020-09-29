@@ -39,9 +39,14 @@ class UsersController < ApplicationController
 
   def destroy
     @user = current_user
-    @user.destroy
-    flash[:notice] = "退会が完了しました。"
-    redirect_to root_path
+    if @user.email == "guest02@example.com"
+      flash[:notice] = "ゲストユーザーは退会できません"
+      redirect_to user_top_path(@user)
+    else
+      @user.destroy
+      flash[:notice] = "退会が完了しました。"
+      redirect_to root_path
+    end
   end
 
   def update
