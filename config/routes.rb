@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "homes#about"
+  root "homes#top"
+  get "homes/about" => "homes#about"
   get 'tops/trend' => "tops#index"
   get 'tops/favorite' => "tops#favorite"
   post 'homes/guest_sign_in' => "homes#new_guest"

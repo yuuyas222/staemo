@@ -15,6 +15,8 @@
 //= require activestorage
 //= require_tree .
 
+
+
 // Javascriptの記載
 "use strict";
 {
@@ -78,7 +80,7 @@ $(function(){
        childrenElementType: "div",
        arrows: false,
        autoPlay: true,
-       autoPlayDuration: 8000,
+       autoPlayDuration: 10000,
        keyboardOnAlways: true,
        hidePrevious: false
     });

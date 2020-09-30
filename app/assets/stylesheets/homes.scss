@@ -8,17 +8,30 @@
 .mdl-layout__header-row{
     padding: 0 20px !important;
 }
+
+.mdl-layout__content{
+    margin: 64px 0 0 0;
+}
     .container{
         text-align: center;
     }
     
     #title-area{
         text-align: center;
-        height: 500px;
-        margin: 100px auto;
+        height: 710px;
+        top: 0;
     }
 
     #title{
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 45%;
+        left: 20%;
+        font-size: 35px;
+        color: aliceblue !important;
+    }
+    .title{
         display: none;
         width: 100%;
         position: absolute;
@@ -34,7 +47,7 @@
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
-        height: 600px;
+        height: 700px;
         text-align: center;
         display: inline-block;
     }
@@ -44,7 +57,7 @@
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
-        height: 600px;
+        height: 500px;
     }
     .image3{
         width: 60%;
@@ -52,7 +65,7 @@
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
-        height: 600px;
+        height: 500px;
     }
     .image4{
         width: 60%;
@@ -60,7 +73,7 @@
         background-size: cover;
         background-blend-mode: darken; 
         background-color: rgba(0,0,0,0.5);
-        height: 600px;
+        height: 500px;
     }
 
     .content{
@@ -82,26 +95,89 @@
    
     
     .text-content{
-        display: inline-block;
+        background-image: image-url("about02.jpg");
+        background-size: cover;
         background-color: #ffffff;
-        border-radius: 15px;
-        padding: 30px;
-        margin: 50px auto ;
-        opacity: 0.7;
-        color: #000000 !important;
-        width: 60%;
+        background-position: center;
+        padding: 100px;
+        text-align: center;
+        border: none;
+        margin: 0 auto ;
+        color: #ffffff !important;
+        width: 100%;
+        background-blend-mode: darken; 
+        background-color: rgba(0,0,0,0.5);
 
         h1{
             margin: 0 auto;
             width: 100%;
-            font-size: 25px;
+            font-family: inherit;
             text-align: center;
+            font-size: 35px;
         }
     
         
         p{
-            text-align: left;
+            text-align: center;
             margin-top: 30px;
+        }
+    }
+
+    .about-content{
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        h5{
+            color: #000000 !important;
+            padding: 5px;
+            border-left: solid 10px #6594e0;
+            margin: 3px;
+            text-align: left;
+        }
+
+        
+        
+        .demo-card-square.mdl-card{
+            width: 60%;
+            margin: 50px auto;
+        }
+        
+        .mdl-card__title1{
+            background-image: image-url("content.jpg") !important;
+            background-position-y: 5px;
+            background-position-x: right;
+            background-size: cover !important;
+            height: 100%;
+            width: 100%;
+        }
+        .mdl-card__title2{
+            background-image: image-url("content02.jpg") !important;
+            background-position-y: 5px;
+            background-position-x: right;
+            background-size: cover !important;
+            height: 100%;
+            width: 100%;
+        }
+        .mdl-card__title3{
+            background-image: image-url("content03.jpg") !important;
+            background-position-y: 5px;
+            background-position-x: right;
+            background-size: cover !important;
+            height: 100%;
+            width: 100%;
+        }
+
+        .mdl-card__supporting-text{
+           padding: 5px;
+           margin-bottom: 10px;
+
+           p{
+               color: #000000 !important;
+               font-size: 12px;
+               margin: 0;
+               padding: 5px;
+           }
         }
     }
  .devise-content{
@@ -128,27 +204,29 @@
                 text-align: left;
             }
 
-.content{
-    text-align: center;
-    h1{
-        width: 100%;
-        font-size: 25px;
+        }
+    .content{
         text-align: center;
-        margin-bottom: 20px;
+        margin: 30px 0 !important;
+        h1{
+            width: 100%;
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+        }
+        .btn{
+               display: inline-block;
+               font-size: 12px;
+               text-decoration: none;
+               font-weight: bold;
+               padding: 5px 16px;
+               border-radius: 4px;
+               transition: .4s;
+               margin: 15px auto;
+               text-align: center;
+           }
     }
-    .btn{
-           display: inline-block;
-           font-size: 12px;
-           text-decoration: none;
-           font-weight: bold;
-           padding: 5px 16px;
-           border-radius: 4px;
-           transition: .4s;
-           margin: 15px auto;
-           text-align: center;
-       }
-}
-}
 
 @media screen and (min-width:1024px){
     .mdl-layout__header .mdl-layout__drawer-button .mdl-layout__drawer{
@@ -156,60 +234,18 @@
     }
 }
 
-@media screen and (max-width:425px){
-    
-    .about{
-        .image1{    
-            height: 500px;
-        }
-        .image2{    
-            height: 500px;
-        }
-        .image3{    
-            height: 500px;
-        }
-        .image4{    
-            height: 500px;
-        }
+@media screen and (max-width:710px){
+    .text-content{
+        padding: 20px;
+    }
 
-        #title-area{
-            position: relative;
-            height: 500px;
-        }
-
-        #title{
-            display: none;
-            position: absolute !important;
-            width: 100% !important;
-            top: 45%;
-            left: 45%;
-            font-size: 35px;
-        }
-
-        .text-content{
-            padding: 30px;
-            margin: 30px 0;
-            opacity: 0.7;
-            color: #000000 !important;
-            width: 100%;
-            font-size: 13px !important;
-        
-
-            h1,h2{
-                font-size: 20px !important;
-            }
-        
-            
-            p{
-                text-align: left;
-                margin-top: 30px;
-            }
-        }
-
-        .btn{
-            width: 40%;
+    .about-content{
+        .demo-card-square.mdl-card{
+            width: 90%;
+            margin: 50px auto;
         }
     }
+
 }
 
 
@@ -221,7 +257,6 @@
     opacity: 0.8;
     height: 100px;
     width: 100%;
-    margin-top: 150px;
 
 
     p{

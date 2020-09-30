@@ -67,7 +67,10 @@
     </nav>
   <% else %>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">about</a>
+      <p class="mdl-navigation__link"><%= link_to "当サイトについて", homes_about_path %></p>
+      <p class="mdl-navigation__link"><%= link_to "ログインする", new_user_session_path %></p>
+      <p class="mdl-navigation__link"><%= link_to "新規登録する", new_user_registration_path %></p>
+      <p class="mdl-navigation__link"><%= link_to "簡単ログイン（ゲストログイン）", homes_guest_sign_in_path, method: :post %></p>
       <a class="mdl-navigation__link" href=""></a>
       <a class="mdl-navigation__link" href=""></a>
       <a class="mdl-navigation__link" href=""></a>
