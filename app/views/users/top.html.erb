@@ -69,6 +69,20 @@
                   <section>
                       <%= time_ago_in_words(gourmet.created_at) %>前
                       投稿画像　<%= gourmet.gourmet_images.count %> 件<br>
+                      <% unless gourmet.rate == nil %>
+                        <div id="star-rate-<%= gourmet.id %>"></div>
+                          <script>
+                          $('#star-rate-<%= gourmet.id %>').raty({
+                            size: 36,
+                            starOff:  '<%= asset_path('star-off.png') %>',
+                            starOn : '<%= asset_path('star-on.png') %>',
+                            starHalf: '<%= asset_path('star-half.png') %>',
+                            half: true,
+                            readOnly: true,
+                            score: <%= gourmet.rate %>,
+                          });
+                          </script> 
+                      <% end %>   
                     </section>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">

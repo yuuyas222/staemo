@@ -27,6 +27,6 @@ class GourmetsController < ApplicationController
 
     private
     def gourmet_params
-        params.require(:gourmet).permit(:body, :tag_list,gourmet_images_images: [])
+        params.require(:gourmet).permit(:body, :tag_list, :rate, gourmet_images_images: [])
     end
 end
