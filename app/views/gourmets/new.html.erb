@@ -12,8 +12,12 @@
 <div class="user-info new">
 <div class="demo-card-square mdl-card mdl-shadow--2dp">
   <div class="mdl-card__supporting-text">
-    <p>投稿</p>
+    <p>グルメ投稿</p>
     <%= f.text_area :body %>
+    <div id="star">
+      <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+      <%= f.hidden_field :rate, id: :review_star %>
+    </div>
     <span id="text-length"></span>
     タグ
     <%= f.text_field :tag_list, value: @gourmet.tag_list.join(',') %>
@@ -24,6 +28,16 @@
     <%= f.attachment_field :gourmet_images_images, multiple: true %>
     <%= f.attachment_field :gourmet_images_images, multiple: true %>
     <%= f.submit "投稿する", class: "btn btn-primary" %>   
+  <script>
+    $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'gourmet[rate]',
+        half: true,
+      });
+  </script>
     <% end %>
   </div>
 </div>
