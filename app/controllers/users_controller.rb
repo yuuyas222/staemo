@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def top
     @user = User.find(params[:user_id])
+    @texts = Text.all
     @emotions = @user.emotions.page(params[:page]).order(created_at: :desc)
     @gourmets = @user.gourmets.page(params[:page]).order(created_at: :desc)
   end
@@ -57,6 +58,11 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def create
+    @texts = Text.new(params[message])
+    @texts.save
   end
 
   private

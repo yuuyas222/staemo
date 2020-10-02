@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_083423) do
+ActiveRecord::Schema.define(version: 2020_10_01_165747) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(version: 2020_10_01_083423) do
     t.string "image_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -98,6 +103,12 @@ ActiveRecord::Schema.define(version: 2020_10_01_083423) do
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "texts", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
