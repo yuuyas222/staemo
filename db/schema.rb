@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_165747) do
+ActiveRecord::Schema.define(version: 2020_10_04_145734) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_10_01_165747) do
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "room_name"
+    t.integer "user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -109,6 +111,8 @@ ActiveRecord::Schema.define(version: 2020_10_01_165747) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "room_id"
   end
 
   create_table "users", force: :cascade do |t|

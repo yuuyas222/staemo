@@ -15,7 +15,8 @@ class User < ApplicationRecord
   has_many :followings, through: :active_relationships, source: :follower
   has_many :passive_relationships, class_name: "Frendship", foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
-  # has_many :texts
+  has_many :texts
+  has_many :rooms
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduction, presence: false, on: :update, length: { maximum: 50 }

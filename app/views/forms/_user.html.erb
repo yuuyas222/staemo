@@ -27,6 +27,8 @@
       Favorite数　<%=@user.favorites.count %><br>
       <% end %>
     </h3> 
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
   <% if current_user.id != @user.id %>
       <% if @user.followed_by?(current_user) %>
           <p><%= link_to "フォロー解除", user_frendships_path(@user.id), method: :delete %></p>
@@ -34,9 +36,11 @@
           <p><%= link_to "フォロー登録", user_frendships_path(@user.id), method: :post %></p></p>
       <% end %>    
   <% end %>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
       <%= link_to "このユーザーについてもっとみる", user_path(@user) %>
+      <%= link_to "チャットルーム", new_room_path %>
   </div>
 </div>
+   
+      
+  
 

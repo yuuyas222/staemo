@@ -1,6 +1,6 @@
 <div class="index-book">
 <h5>チャット</h5>
-<div id="messages">
+<div id="messages", data-room_id="<%= @room.id %>">
     <%= render partial: "forms/message", collection: @messages %>
 </div>
 <form>
