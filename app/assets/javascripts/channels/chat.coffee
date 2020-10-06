@@ -1,8 +1,4 @@
-# App.chat = App.cable.subscriptions.create "ChatChannel",
-$(document).on "turbolinks:load", ->
-      # messages = $("#messages")
-    # if $("messages").length > 0
-  App.chat = App.cable.subscriptions.create { channel: "ChatChannel", room_id: $("#messages").data("room_id") },
+App.chat = App.cable.subscriptions.create "ChatChannel",
     connected: ->
             # Called when the subscription is ready for use on the server
 

@@ -1,11 +1,11 @@
 <div class="index-book">   
       <% @rooms.each do |room| %>
-      <%= link_to room_path(room) do %>
+      <%= link_to user_room_path(current_user,room) do %>
         <%= room.room_name %>
       <% end %>  
       <% end %>
 </div>
-    <%= form_for(@room) do |f| %>
+    <%= form_for(@room, url: new_user_room_path) do |f| %>
         <%= f.text_field :room_name %>
         <%= f.submit "submit"%>
     <% end %>

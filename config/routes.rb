@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'tops/trend' => "tops#index"
   get 'tops/favorite' => "tops#favorite"
   post 'homes/guest_sign_in' => "homes#new_guest"
-  resources :rooms, only: [:show, :create, :new]
   devise_for :users, controller: {
     sessions: "users/sessions",
     registrations: "users/registrations",
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :edit, :show, :update, :destroy, :create] do
     resource :frendships, only: [:create, :destroy]
+    resources :rooms, only: [:show, :create, :new]
     get "user_top" => "users#top", as: "top"
     get "user_favorites" => "users#favorite", as: "favorites"
     get :follows, on: :member

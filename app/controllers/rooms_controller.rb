@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
     def show
         @room = Room.find(params[:id])
-        @messages = @room.texts
+        @messages = @room.texts.all
     end
 
     def new
